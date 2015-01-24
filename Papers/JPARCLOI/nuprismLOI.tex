@@ -1,0 +1,404 @@
+\documentclass[%
+reprint,
+superscriptaddress,
+%groupedaddress,
+%unsortedaddress,
+%runinaddress,
+%frontmatterverbose, 
+%preprint,
+%showpacs,preprintnumbers,
+%nofootinbib,
+%nobibnotes,
+%bibnotes,
+ amsmath,amssymb,
+ aps,
+%pra,
+%prb,
+%rmp,
+%prstab,
+%prstper,
+floatfix,
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{epstopdf}
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{color}
+\usepackage[caption=false]{subfig}
+\usepackage{xspace}
+\usepackage{epsfig}
+\usepackage{multirow}
+\usepackage[]{units}
+%\usepackage{caption}
+\usepackage{cleveref}
+\usepackage{hyperref}% add hypertext capabilities
+\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+\usepackage{afterpage} 
+%\linenumbers\relax % Commence numbering lines
+\input symbols
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+\newcommand{\mtxtlbl}[1]{\text{{\scriptsize #1}}}
+
+\begin{document}
+
+
+\preprint{XXX}
+
+\title{Letter of Intent to Construct a nuPRISM Detector in the J-PARC Neutrino Beamline}% Force line breaks with \\
+%\thanks{A footnote to the article title}%
+
+\input{author.tex}
+
+\date{ \today }  % It is always \today, today,
+               %  but any date may be explicitly specified
+
+\maketitle
+
+%\begin{abstract}
+
+\onecolumngrid
+{\small
+As long-baseline neutrino experiments enter the precision era, the difficulties associated with understanding neutrino interaction cross sections on atomic nuclei are expected to limit experimental sensitivities to neutrino oscillation parameters. In particular, the ability to relate experimental observables to the incident neutrino energy in all previous experiments has relied solely on theoretical models of neutrino-nucleus interactions, which currently suffer from very large theoretical uncertainties.
+
+By observing charged current \numu interactions over a continuous range of off-axis angles from 1$^\circ$ to 4$^\circ$, the \nuprism water Cherenkov detector can provide a direct measurement of the far detector lepton kinematics for any given set of oscillation parameters, which largely removes neutrino interaction modeling uncertainties from T2K oscillation measurements. This naturally provides a direct constraint on the relationship between lepton kinematics and neutrino energy. In addition, \nuprism is a sensitive probe of sterile neutrino oscillations with multiple energy spectra, which provides unique constraints on possible background-related explanations of the MiniBooNE anomaly. Finally, high-precision measurements of neutrino cross sections on water are possible, including electron neutrino measurements and the first ever measurements of neutral current interactions as a function of neutrino energy.
+
+The \nuprism detector also provides significant benefits to the proposed Hyper-Kamiokande project. A demonstration that neutrino interaction uncertainties can be controlled will be important to understanding the physics reach of Hyper-K. In addition, \nuprism will provide an easily accessible prototype detector for many of the new hardware components currently under consideration for Hyper-K. The following document presents the configuration, physics impact, and preliminary cost estimates for a \nuprism detector in the J-PARC neutrino beamline.\\ \\ \\
+}
+%\end{abstract}
+\twocolumngrid
+
+%\pacs{Valid PACS appear here}% PACS, the Physics and Astronomy
+                             % Classification Scheme.
+%\keywords{Suggested keywords}%Use showkeys class option if keyword
+                              %display desired
+
+
+%\maketitle
+
+\vspace{1cm}
+
+{\large
+\tableofcontents}
+
+\clearpage
+
+
+\input{intro.tex}
+%\include{detectorconcept}
+\input{physics.tex}
+\input{detectordesign.tex}
+\input{calibration.tex}
+\input{conclusion.tex}
+
+
+%\bibliographystyle{unsrt}
+%\bibliography{nuprismLOI}% Produces the bibliography via BibTeX.
+
+\begin{thebibliography}{99}
+
+\bibitem{TN172}
+  T.~Dealtry {\it et al.}
+  %``Studies of the Effect of Neutrino-Multinucleon Interactions in the 2013 Disappearance Analysis''
+  T2K-TN-172 (2014)
+
+%\cite{Llewellyn Smith:1971zm}
+\bibitem{LlewellynSmith:1971zm} 
+  C.~H.~Llewellyn Smith,
+  %``Neutrino Reactions at Accelerator Energies,''
+  Phys.\ Rept.\  {\bf 3}, 261 (1972).
+  %%CITATION = PRPLC,3,261;%%
+  %659 citations counted in INSPIRE as of 17 Jul 2014
+
+%\cite{Smith:1972xh}
+\bibitem{Smith:1972xh} 
+  R.~A.~Smith and E.~J.~Moniz,
+  %``Neutrino Reactions On Nuclear Targets,''
+  Nucl.\ Phys.\ B {\bf 43}, 605 (1972)
+  [Erratum-ibid.\ B {\bf 101}, 547 (1975)].
+  %%CITATION = NUPHA,B43,605;%%
+  %233 citations counted in INSPIRE as of 17 Jul 2014
+
+%\cite{Benhar:1989aw}
+\bibitem{Benhar:1989aw} 
+  O.~Benhar, A.~Fabrocini and S.~Fantoni,
+  %``The Nucleon Spectral Function in Nuclear Matter,''
+  Nucl.\ Phys.\ A {\bf 505}, 267 (1989).
+  %%CITATION = NUPHA,A505,267;%%
+  %179 citations counted in INSPIRE as of 17 Jul 2014
+
+%\cite{Marteau:1999kt}
+\bibitem{Marteau:1999kt} 
+  J.~Marteau,
+  %``Effects of the nuclear correlations on the neutrino oxygen interactions,''
+  Eur.\ Phys.\ J.\ A {\bf 5}, 183 (1999)
+  [hep-ph/9902210].
+  %%CITATION = HEP-PH/9902210;%%
+  %34 citations counted in INSPIRE as of 17 Jul 2014
+
+%\cite{Martini:2009uj}
+\bibitem{Martini:2009uj} 
+  M.~Martini, M.~Ericson, G.~Chanfray and J.~Marteau,
+  %``A Unified approach for nucleon knock-out, coherent and incoherent pion production in neutrino interactions with nuclei,''
+  Phys.\ Rev.\ C {\bf 80}, 065501 (2009)
+  [arXiv:0910.2622 [nucl-th]].
+  %%CITATION = ARXIV:0910.2622;%%
+  %130 citations counted in INSPIRE as of 17 Jul 2014
+
+%\cite{Martini:2010ex}
+\bibitem{Martini:2010ex} 
+  M.~Martini, M.~Ericson, G.~Chanfray and J.~Marteau,
+  %``Neutrino and antineutrino quasielastic interactions with nuclei,''
+  Phys.\ Rev.\ C {\bf 81}, 045502 (2010)
+  [arXiv:1002.4538 [hep-ph]].
+  %%CITATION = ARXIV:1002.4538;%%
+  %111 citations counted in INSPIRE as of 17 Jul 2014
+
+%\cite{Martini:2011wp}
+\bibitem{Martini:2011wp} 
+  M.~Martini, M.~Ericson and G.~Chanfray,
+  %``Neutrino quasielastic interaction and nuclear dynamics,''
+  Phys.\ Rev.\ C {\bf 84}, 055502 (2011)
+  [arXiv:1110.0221 [nucl-th]].
+  %%CITATION = ARXIV:1110.0221;%%
+  %48 citations counted in INSPIRE as of 17 Jul 2014
+
+%\cite{Nieves:2011pp}
+\bibitem{Nieves:2011pp} 
+  J.~Nieves, I.~Ruiz Simo and M.~J.~Vicente Vacas,
+  %``Inclusive Charged--Current Neutrino--Nucleus Reactions,''
+  Phys.\ Rev.\ C {\bf 83}, 045501 (2011)
+  [arXiv:1102.2777 [hep-ph]].
+  %%CITATION = ARXIV:1102.2777;%%
+  %74 citations counted in INSPIRE as of 17 Jul 2014
+
+
+
+
+\bibitem{nue-numu-cross-section}
+Melanie Day, Kevin S. McFarland, Differences in Quasi-Elastic Cross-Sections of Muon and Electron Neutrinos Phys.Rev. D86 (2012) 053003 
+\bibitem{nd280}
+Yu.~Kudenko (for the T2K Collaboration). Nucl. Instr. and Meth. A598 (2009) 289-295; 
+K. Abe et al., (The T2K Collaboration) Nucl. Instr. and Meth. A 659 (2011) 106.
+\bibitem{renker}D.~Renker, and E.~Lorenz, JINST 4 (2009) P04004.
+\bibitem{mppcT2K} M.~Yokoyama  et al., Nucl. Instr. and Meth. A 610 (2009) 128; 
+M.Yokoyama et al., Nucl. Instr. and Meth. A 622 (2010) 567;
+A.~Vacheret et al., Nucl. Instr. and Meth. A 656 (2011) 69.
+\bibitem{musienko_instr14} Yu.Musienko, New developments in solid state photomultiplier, talk at the International Conference "Instrumentation for Colliding Beam Physics" (INSTR14), 24 February - 1 March 2014, Novosibirsk, Russia.
+
+%\cite{Fukuda:2002uc}
+\bibitem{Fukuda:2002uc} 
+  Y.~Fukuda {\it et al.}  [Super-Kamiokande Collaboration],
+  %``The Super-Kamiokande detector,''
+  Nucl.\ Instrum.\ Meth.\ A {\bf 501}, 418 (2003).
+  %%CITATION = NUIMA,A501,418;%%
+  %298 citations counted in INSPIRE as of 25 Jul 2014
+
+%\cite{SK_calib_paper}
+\bibitem{SK_calib_paper} 
+  K.~Abe, Y.~Hayato, T.~Iida, K.~Iyogi, J.~Kameda, Y.~Kishimoto, Y.~Koshio and L.~.Marti {\it et al.},
+  %``Calibration of the Super-Kamiokande Detector,''
+  Nucl.\ Instrum.\ Meth.\ A {\bf 737}, 253 (2014)
+  [arXiv:1307.0162 [physics.ins-det]].
+  %%CITATION = ARXIV:1307.0162;%%
+  %5 citations counted in INSPIRE as of 25 Jul 2014
+
+
+\bibitem{sci_det}
+O.Mineev et al., JINST 6 (2011) P12004; arXiv:1110.2651 [physics.ins-det].
+%%CITATION = ARXIV:1110.2651;%% 
+\bibitem{extrusion}Y.~Kudenko et al., Nucl. Instr.  Meth. A469 (2001) 340.
+\bibitem{htmtg_tank_slides}
+S.~Nakayama {\it et al.} [Hyper-Kamiokande Working Group],
+"Hyper-K Tank",
+Talk at the 4th Open Meeting for the Hyper-Kamiokande Project,
+\url{http://indico.ipmu.jp/indico/getFile.py/access?contribId=29&sessionId=4&resId=0&materialId=slides&confId=29}
+
+%nue section
+\bibitem{miniboone-nue}
+ MiniBooNE collaboration, Phys.Rev.Lett.102(2009)101802 
+\bibitem{nuSTORM}
+nuSTORM - Neutrinos from STORed Muons: Proposal to the Fermilab PAC, arXiv:1308.6822
+
+
+%% Cross section references
+
+%\cite{Abe:2013jth}
+\bibitem{Abe:2013jth} 
+  K.~Abe {\it et al.}  [T2K Collaboration],
+  %``Measurement of the Inclusive NuMu Charged Current Cross Section on Carbon in the Near Detector of the T2K Experiment,''
+  Phys.\ Rev.\ D {\bf 87}, 092003 (2013)
+  [arXiv:1302.4908 [hep-ex]].
+  %%CITATION = ARXIV:1302.4908;%%
+  %8 citations counted in INSPIRE as of 02 Apr 2014
+
+%\cite{Nakajima:2010fp}
+\bibitem{Nakajima:2010fp} 
+  Y.~Nakajima {\it et al.}  [SciBooNE Collaboration],
+  %``Measurement of inclusive charged current interactions on carbon in a few-GeV neutrino beam,''
+  Phys.\ Rev.\ D {\bf 83}, 012005 (2011)
+  [arXiv:1011.2131 [hep-ex]].
+  %%CITATION = ARXIV:1011.2131;%%
+  %41 citations counted in INSPIRE as of 02 Apr 2014
+
+%\cite{Tice:2014pgu}
+\bibitem{Tice:2014pgu} 
+  B.~G.~Tice {\it et al.}  [MINERvA Collaboration],
+  %``Measurement of Ratios of $\nu_{\mu}$ Charged-Current Cross Sections on C, Fe, and Pb to CH at Neutrino Energies 2-20 GeV,''
+  %Submitted to: Phys.Rev.Lett.
+  [arXiv:1403.2103 [hep-ex]].
+  %%CITATION = ARXIV:1403.2103;%%
+
+
+%\cite{AguilarArevalo:2010zc}
+\bibitem{AguilarArevalo:2010zc} 
+  A.~A.~Aguilar-Arevalo {\it et al.}  [MiniBooNE Collaboration],
+  %``First Measurement of the Muon Neutrino Charged Current Quasielastic Double Differential Cross Section,''
+  Phys.\ Rev.\ D {\bf 81}, 092005 (2010)
+  [arXiv:1002.2680 [hep-ex]].
+  %%CITATION = ARXIV:1002.2680;%%
+  %195 citations counted in INSPIRE as of 02 Apr 2014
+
+\bibitem{sciboone-nuint2011} 
+  Y.~Nakajima,
+\url{http://nuint11.in/final\_nuint/cc\%20quasi\%20and\%20nc\%20elastic\%20scattering/nakajima\_nuint11.pdf}
+
+%\cite{Lyubushkin:2008pe}
+\bibitem{Lyubushkin:2008pe} 
+  VLyubushkin {\it et al.}  [NOMAD Collaboration],
+  %``A Study of quasi-elastic muon neutrino and antineutrino scattering in the NOMAD experiment,''
+  Eur.\ Phys.\ J.\ C {\bf 63}, 355 (2009)
+  [arXiv:0812.4543 [hep-ex]].
+  %%CITATION = ARXIV:0812.4543;%%
+  %127 citations counted in INSPIRE as of 03 Apr 2014
+
+
+%\cite{Fiorentini:2013ezn}
+\bibitem{Fiorentini:2013ezn} 
+  G.~A.~Fiorentini {\it et al.}  [MINERvA Collaboration],
+  %``Measurement of Muon Neutrino Quasielastic Scattering on a Hydrocarbon Target at Eν∼3.5  GeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 111}, no. 2, 022502 (2013)
+  [arXiv:1305.2243 [hep-ex]].
+  %%CITATION = ARXIV:1305.2243;%%
+  %23 citations counted in INSPIRE as of 03 Apr 2014
+
+%\cite{Gran:2006jn}
+\bibitem{Gran:2006jn} 
+  R.~Gran {\it et al.}  [K2K Collaboration],
+  %``Measurement of the quasi-elastic axial vector mass in neutrino-oxygen interactions,''
+  Phys.\ Rev.\ D {\bf 74}, 052002 (2006)
+  [hep-ex/0603034].
+  %%CITATION = HEP-EX/0603034;%%
+  %155 citations counted in INSPIRE as of 01 Apr 2014
+
+%\cite{AguilarArevalo:2010bm}
+\bibitem{AguilarArevalo:2010bm} 
+  A.~A.~Aguilar-Arevalo {\it et al.}  [MiniBooNE Collaboration],
+  %``Measurement of Neutrino-Induced Charged-Current Charged Pion Production Cross Sections on Mineral Oil at E$_{\nu}\sim 1~\textrm{GeV}$,''
+  Phys.\ Rev.\ D {\bf 83}, 052007 (2011)
+  [arXiv:1011.3572 [hep-ex]].
+  %%CITATION = ARXIV:1011.3572;%%
+  %65 citations counted in INSPIRE as of 02 Apr 2014
+
+
+%\cite{AguilarArevalo:2010xt}
+\bibitem{AguilarArevalo:2010xt} 
+  A.~A.~Aguilar-Arevalo {\it et al.}  [MiniBooNE Collaboration],
+  %``Measurement of $\nu_\mu$-induced charged-current neutral pion production cross sections on mineral oil at $E_\nu\in0.5-2.0$ GeV,''
+  Phys.\ Rev.\ D {\bf 83}, 052009 (2011)
+  [arXiv:1010.3264 [hep-ex]].
+  %%CITATION = ARXIV:1010.3264;%%
+  %76 citations counted in INSPIRE as of 02 Apr 2014
+
+
+%\cite{Rodriguez:2008aa}
+\bibitem{Rodriguez:2008aa} 
+  A.~Rodriguez {\it et al.}  [K2K Collaboration],
+  %``Measurement of single charged pion production in the charged-current interactions of neutrinos in a 1.3-GeV wide band beam,''
+  Phys.\ Rev.\ D {\bf 78}, 032003 (2008)
+  [arXiv:0805.0186 [hep-ex]].
+  %%CITATION = ARXIV:0805.0186;%%
+  %56 citations counted in INSPIRE as of 01 Apr 2014
+
+\bibitem{Mariani:2010ez} 
+  C.~Mariani {\it et al.}  [K2K Collaboration],
+  %``Measurement of inclusive $\pi^0$ production in the Charged-Current Interactions of Neutrinos in a 1.3-GeV wide band beam,''
+  Phys.\ Rev.\ D {\bf 83}, 054023 (2011)
+  [arXiv:1012.1794 [hep-ex]].
+  %%CITATION = ARXIV:1012.1794;%%
+  %7 citations counted in INSPIRE as of 01 Apr 2014
+
+%\cite{Hasegawa:2005td}
+\bibitem{Hasegawa:2005td} 
+  M.~Hasegawa {\it et al.}  [K2K Collaboration],
+  %``Search for coherent charged pion production in neutrino-carbon interactions,''
+  Phys.\ Rev.\ Lett.\  {\bf 95}, 252301 (2005)
+  [hep-ex/0506008].
+  %%CITATION = HEP-EX/0506008;%%
+  %149 citations counted in INSPIRE as of 01 Apr 2014
+
+%\cite{Lalakulich:2013iaa}
+\bibitem{Lalakulich:2013iaa} 
+  O.~Lalakulich and U.~Mosel,
+  %``Pion production in the T2K experiment,''
+  Phys.\ Rev.\ C {\bf 88}, no. 1, 017601 (2013)
+  [arXiv:1305.3861 [nucl-th]].
+  %%CITATION = ARXIV:1305.3861;%%
+  %2 citations counted in INSPIRE as of 02 Apr 2014
+
+%\cite{AguilarArevalo:2009ww}
+\bibitem{AguilarArevalo:2009ww} 
+  A.~A.~Aguilar-Arevalo {\it et al.}  [MiniBooNE Collaboration],
+  %``Measurement of nu(mu) and anti-nu(mu) induced neutral current single pi0 production cross sections on mineral oil at E(nu) ~ O(1- GeV),''
+  Phys.\ Rev.\ D {\bf 81}, 013005 (2010)
+  [arXiv:0911.2063 [hep-ex]].
+  %%CITATION = ARXIV:0911.2063;%%
+  %65 citations counted in INSPIRE as of 02 Apr 2014
+
+%\cite{Nakayama:2004dp}
+\bibitem{Nakayama:2004dp} 
+  S.~Nakayama {\it et al.}  [K2K Collaboration],
+  %``Measurement of single pi0 production in neutral current neutrino interactions with water by a 1.3-GeV wide band muon neutrino beam,''
+  Phys.\ Lett.\ B {\bf 619}, 255 (2005)
+  [hep-ex/0408134].
+  %%CITATION = HEP-EX/0408134;%%
+  %83 citations counted in INSPIRE as of 01 Apr 2014
+
+\bibitem{Formaggio:2013kya} 
+  J.~A.~Formaggio and G.~P.~Zeller,
+  %``From eV to EeV: Neutrino Cross Sections Across Energy Scales,''
+  Rev.\ Mod.\ Phys.\  {\bf 84}, 1307 (2012)
+  [arXiv:1305.7513 [hep-ex]].
+  %%CITATION = ARXIV:1305.7513;%%
+  %27 citations counted in INSPIRE as of 08 Apr 2014
+
+\bibitem{hawker} 
+  E.~Hawker,  Proceedings of the Second International Workshop on Neutrino-Nucleus Interactions in the Few-GeV Region, Irvine, CA, unpublished
+
+\bibitem{TN132}
+  T.~Kikawa {\it et al.}
+  %``INGRID neutrino beam measurements with new analysis method''
+  T2K-TN-132 (2013)
+
+\bibitem{t2k2km}
+  E.~Kearns {\it et al.}
+  %``INGRID neutrino beam measurements with new analysis method''
+  http://www.phy.duke.edu/~cwalter/nusag-members/2km-proposal-05-05-30.pdf
+  (2005)
+
+\end{thebibliography} 
+
+\newpage
+
+\appendix
+
+\input{detectorcost.tex}
+
+\end{document}

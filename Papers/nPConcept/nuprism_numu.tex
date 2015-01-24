@@ -1,0 +1,30 @@
+\section{Measurements with CC $\nu_{\mu}$ candidates \label{sec:nuprism_numu}}
+
+As discussed in the previous section, $\nu$PRISM can reconstruct large, pure samples of charged current
+events with a muon candidate and no other particles above Cherenkov threshold.  For each event, the
+off-axis angle $\theta_{OA}$ is reconstructed and this observable implies additional information about the
+distribution of possible neutrino energies based on the prior flux model.  Data binned in $\theta_{OA}$ and the
+usual muon observables of momentum (or kinetic energy) and scattering angle are used to constrain the
+cross section model.  In the typical approach, the data may be unfolded to find the cross-section in the
+true variable of neutrino energy, muon momentuma and muon scattering angle.  However, unfolding relies 
+on regularization to deal with the ill-defined nature of the problem, and may not perform well when 
+unfolding for $\theta_{OA}$ to the neutrino energy.
+
+We take an alternative approach of using the off-axis neutrino spectra impinging on $\nu$PRISM as a set of basis
+functions.  We then write a spectrum of interest as a linear combination of the off-axis spectra:
+\begin{equation}
+F_{\nu_{\mu}}(E_{\nu}) = \sum_{i} c_{i}\phi^{i}_{\nu_{\mu}}(E_{\nu}).
+\end{equation}
+Here $F_{\nu_{\mu}}(E_{\nu})$ is an arbitrary function of interest, $\phi^{i}_{\nu_{\mu}}(E_{\nu})$ is the predicted spectrum
+in the $i^{th}$ off-axis angle bin and $c_{i}$ are simply coefficients.  The challenge is to find a set of $c_{i}$
+that approximatly satisfy the equation while minimizing the statistical and systematic uncertainties that are propagated through the
+linear combination.  Once the $c_{i}$ are found, we can write a similar equation for the observables:
+\begin{equation}
+N(p_{\mu},\theta_{\mu}|F_{\nu_{\mu}}(E_{\nu})) = \sum_{i} c_{i}N^{i}(p_{\mu},\theta_{\mu}).
+\end{equation}
+In this way, the final state particle multiplicities and kinematics can be measured for an given choice of 
+of the input neutrino energy spectrum.  For neutrino cross section measurements, one may choose an input spectrum that
+approximates a mono-energetic beam.  For neutrino oscillation 
+
+\subsection{Pseudo-monoenergetic beams}
+

@@ -1,0 +1,712 @@
+\section{Physics Capabilities}\label{sec:physics}
+
+The physics goals of \nuprismlite include reducing systematic uncertainties on the T2K oscillation analyses, using electron-like events to search for sterile neutrino oscillations and constrain electron neutrino cross sections, and making the first ever energy dependent neutral current (NC) and charged current (CC) cross section measurements that do not rely on neutrino generators to provide the incident neutrino energy. 
+
+\input{detectorconcept}
+
+\subsection{Simulation Inputs \label{sec:nuprism_sim}}
+
+To perform \nuprismlite sensitivity analyses, the official T2K flux production and associated flux uncertainties have been extended to cover a continuous range of off-axis angles, and the standard T2K package used to generate vertices in ND280 has also been modified to handle flux vectors with varying energy spectra across the detector. However, for the analysis presented in this note, full detector simulation and reconstruction of events were not available. Instead, selection efficiencies and reconstruction resolutions for vertex, direction, and visible energy were tabulated using the results of fiTQun run on Super-K events. The efficiency for electrons (muons) was defined as events passing the following cuts: OD veto, 1-ring, e-like ($\mu$-like), 0 (1) decay electrons, and the T2K fiTQun $\pi^0$ rejection (no $\pi^0$ cut). The efficiency tabulation was performed in bins of the true neutrino energy, the visible energy and distance along the track direction to the wall of the most energetic ring, and separate tables were produced for charged current events with various pion final states (CC0$\pi$, CC1$\pi^\pm$0$\pi^0$, CC0$\pi^\pm$1$\pi^0$, CCN$\pi^\pm$0$\pi^0$, and CCother) for both \nue and \numu events, as well as a set of neutral current final states, also characterized by pion content (NC0$\pi$, NC1$\pi^\pm$0$\pi^0$, NC0$\pi^\pm$1$\pi^0$, NCN$\pi^\pm$0$\pi^0$, and NCother). To determine the smearing of true quantities due to event reconstruction, vertex, direction, and visible energy resolution functions were also produced for the 1-ring e-like and $\mu$-like samples in bins of visible energy and distance along the track direction to the wall of the most energetic ring.
+
+\input{nuprism_sim.tex}
+
+\subsection{Event Pileup } \label{sec:nuprism_pileup} % I assume this will be sand background as well? TL
+\input{event_pileup.tex}
+
+%Section goals:
+%\begin{itemize}
+%\item MC study of pileup including rates of muons and neutrons as a function of off-axis angle
+%\end{itemize}
+
+\subsection{Event Selection for Sensitivity Studies}
+We select samples of single ring muon and electron candidates for the long and short baseline sensitivity studies described in the following sections.  
+As described in Section~\ref{sec:nuprism_sim}, the efficiencies for single ring electron or muon selections are applied using tables calculated from the SK MC.  
+The efficiency tables are calculated with the following requirements for muon and electron candidates:
+\begin{itemize}
+\item Muon candidate requirements: fully contained, a single muon-like ring, 1 or fewer decay electrons
+\item Electron candidate requirements: fully contained, a single electron-like ring, no decay electrons, passes the fiTQun $\pi^{0}$ cut
+\end{itemize}
+Additional cuts are applied on the smeared $\nu$PRISM MC.  For the muon candidates the cuts are similar to the SK selection for the T2K disappearance analysis:
+\begin{itemize}
+\item Muon candidate cuts: $dWall>100$ cm, $toWall>200$ cm, $E_{vis}>30$ MeV, $p_{\mu}>200$ MeV/c
+\end{itemize}
+where $dWall$ is the distance from the event vertex to the nearest wall, and $toWall$ is the distance from the vertex to the wall along the direction of the particle.
+
+For the single ring electron candidates, the cuts on $toWall$ and $E_{vis}$ were reoptimized since the separation between electrons and muons or electrons
+and $\pi^{0}$s degrades closer to the wall.  The cut on $dWall$ is set to 200 cm to avoid entering backgrounds.  The 
+cuts are:
+\begin{itemize}
+\item Electron candidate cuts: $dWall>200$ cm, $toWall>320$ cm, $E_{vis}>200$ MeV
+\end{itemize}
+The tight fiducial cuts for the electrons candidates are needed to produce a relatively pure sample, but there is a significant impact to the electron candidate statistics.
+A simulation with finer PMT granularity may allow for the $toWall$ cut to be relaxed, increasing the statistics without degrading the purity.
+
+
+\subsection{T2K \numu Disappearance Sensitivities}
+\label{sec:disap}
+
+The most straightforward application of the \nuprism concept to T2K is in the \numu disappearance measurement. A full \numu analysis has been performed in which \nuprismlite completely replaces ND280. In the future, it will be useful to incorporate ND280 into \nuprismlite analyses, particularly the sterile neutrino searches, but for simplicity this has not yet been done.
+
+The main goal of this \numu disappearance analysis is to demonstrate that \nuprismlite measurements will remove most of the neutrino cross section systematic uncertainties from measurements of the oscillation parameters. This is achieved by directly measuring the muon momentum vs angle distribution that will be seen at Super-K for any choice of $\theta_{23}$ and $\Delta m^2_{32}$.
+
+To clearly compare the \nuprismlite \numu analysis with the standard T2K approach, the full T2K analysis is reproduced using \nuprismlite in place of ND280. This is done by generating fake data samples produced from throws of the flux and cross section systematic parameters and fitting these samples using the standard oscillation analysis framework. In each flux, cross section and statistical throw, three fake data samples using different cross section models were produced at both ND280 and Super-K: default NEUT with pionless delta decay, NEUT with the Nieves multinucleon model replacing pionless delta decays, and NEUT with an ad-hoc multinucleon model that uses the final state kinematics of the Nieves model and the cross section from Martini {\it et al}.
+For each throw, all three fake data samples were fit to derive estimates of the oscillation parameters.  The differences between the fitted values of  $\sin^2\theta_{23}$ for the NEUT nominal and NEUT+Nieves or NEUT+Martini fake data fits are shown in Figure~\ref{fig:nievesmartini}.
+The systematic uncertainty associated with assuming the default NEUT model rather than the model of Martini or Nieves is given by the quadrature sum of the RMS and mean (i.e. bias) of these distributions. For the ND280 analysis, there is a 3.6\% uncertainty when comparing with the Nieves model, and a 4.3\% uncertainty in the measured value of $\sin^2\theta_{23}$ when comparing with the Martini model. These uncertainties would be among the largest for the current T2K \numu disappearance analysis, and yet they are based solely on model comparisons with no data-driven constraint.
+
+\begin{figure}[htpb]
+\begin{center}
+  \begin{minipage}[t]{.45\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth] {figures/nieves_theta23.pdf}
+    \end{center}
+  \end{minipage}
+  \begin{minipage}[t]{.45\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth] {figures/martini_theta23.pdf}
+    \end{center}
+  \end{minipage}
+\end{center}
+\caption{The results of fitting fake data with and without multinucleon effects are shown. The measured differences in $\sin^2\theta_{23}$ when comparing the Nieves model to default neut (blue) and the Martini model to default neut (red) give RMS values of 3.6\% and 3.2\%, respectively, and biases of 0.3\% and -2.9\%, respectively.}
+\label{fig:nievesmartini}
+\end{figure}
+
+%The first stage of the \nuprismlite \numu analysis is to separate the 1-4 degree off-axis range of the detector into 30 0.1 degree slices in off-axis angle. The neutrino energy spectrum in each off-axis bin is predicted by the T2K neutrino flux simulation.  For each set of oscillation parameters to be tested, the Super-K neutrino energy spectrum is also predicted using the T2K flux simulation. For each set of oscillation parameters to be included in the final oscillation fit, the oscillated Super-K energy spectrum is also extracted from the flux Monte Carlo simulation. A linear combination of the 30 off-axis fluxes is then taken to reproduce each of the Super-K oscillated spectra,
+%\begin{equation}
+%\Phi^{SK} \left(E_\nu;\theta_{23},\Delta m^2_{32}\right)E_\nu =\sum_{i=1}^{30}c_i\left(\theta_{23},\Delta m^2_{32}\right)E_\nu\Phi^{\nu P}_i(E_\nu),
+%\end{equation}
+%where $c_i\left(\theta_{23},\Delta m^2_{32}\right)$ is the weight of each off-axis slice, $i$. The extra factors of $E_\nu$ are inserted to approximate the effect of cross section weighting. An example linear combination of nuPRISM off-axis fluxes that reproduces the SK flux flux is shown in Figure~\ref{fig:fluxfit}. These fits can successfully reproduce Super-K oscillated spectra, except at neutrino energies below $\sim 400$~MeV. The maximum off-axis angle is 4$^\circ$, which peaks at 380~MeV, so at lower energies it is difficult to reproduce an arbitrary flux shape. This could be improved by extending the detector further off-axis.
+
+As was discussed in Section~\ref{sec:enu_determine} the limitation of using ND280 data to predict observed particle distributions at Super-K is that the neutrino flux at these two detectors is different due to oscillations.  Therefore, any extrapolation has significant and difficult to characterize cross section model dependent uncertainties.  In the \nuprismlite based analysis, this limitation is resolved by deriving linear combinations of the fluxes at different off-axis angles to produce a flux that closely matches the predicted oscillated flux at Super-K.  The observed particle distributions measured by \nuprismlite are then combined with the same linear weights to predict the particle distribution at Super-K.  In this way, the analysis relies on the flux model to determine the weights that reproduce the oscillated flux while minimizing cross section model dependence in the extrapolation.
+
+The first stage of the \nuprismlite \numu analysis is to separate the 1-4 degree off-axis range of the detector into 30 0.1 degree or 60 0.05 degree bins in off-axis angle. The neutrino energy spectrum in each off-axis bin is predicted by the T2K neutrino flux simulation.  For each hypothesis of oscillation parameter values that will be tested in the final oscillation fit, the oscillated Super-K energy spectrum is also predicted by the T2K neutrino flux simulation. A linear combination of the 30 (60) off-axis fluxes is then taken to reproduce each of the Super-K oscillated spectra,
+\begin{equation}
+\Phi^{SK} \left(E_\nu;\theta_{23},\Delta m^2_{32}\right)E_\nu =\sum_{i=1}^{30}c_i\left(\theta_{23},\Delta m^2_{32}\right)E_\nu\Phi^{\nu P}_i(E_\nu),
+\end{equation}
+where $c_i\left(\theta_{23},\Delta m^2_{32}\right)$ is the weight of each off-axis bin, $i$. The extra factors of $E_\nu$ are inserted to approximate the effect of cross section weighting. The $c_i\left(\theta_{23},\Delta m^2_{32}\right)$ are determined by a fitting routine that seeks agreement between the Super-K flux and the linear combination over a specified range of energy. An example linear combination of nuPRISM off-axis fluxes that reproduces the SK flux is shown in Figure~\ref{fig:fluxfit}. These fits can successfully reproduce Super-K oscillated spectra, except at neutrino energies below $\sim 400$~MeV. The maximum off-axis angle is 4$^\circ$, which peaks at 380~MeV, so at lower energies it is difficult to reproduce an arbitrary flux shape. This could be improved by extending the detector further off-axis.
+
+The determination of the $c_i\left(\theta_{23},\Delta m^2_{32}\right)$ weights to reproduce the oscillated flux is subject to some optimization. Figure~\ref{fig:weightvariance} shows two sets of weights for a particular oscillation hypothesis.  In the first case a smoothness constrain was applied to the weights so that they vary smoothly between neighboring off-axis angle bins. In the second case the weights are allowed to vary more freely relative to their neighbors.  Figure~\ref{fig:fluxesevents_smooth} shows the comparisons of the \nuprismlite flux linear combinations with the Super-K oscillated flux for a few oscillation hypotheses in the smoothed and free weight scenarios.  The oscillated flux in the maximum oscillation region is nearly perfectly reproduced when the weights are allowed to vary more freely.  When they are constrained to vary smoothly, the agreement is less perfect, although still significantly better than the agreement between ND280 and Super-K fluxes.  An analysis using the free weights is less dependent on the cross section model assumptions in the extrapolation to Super-K since the Super-K flux is more closely matched.  On the other hand, the analysis with the smoothed weights is less sensitive to uncertainties on the flux model and \nuprismlite detector model that have an off-axis angle dependence since neighboring bins have similar weight values.  The statistical errors are also smaller for the smoothed weight case since the sum in quadrature of the weights in a given neutrino energy bin is smaller when there are less fluctuations in weight values.  In the analysis presented here, the smoothed weights are used, although the optimization of the level of smoothness is an area where the analysis will be improved in the future.
+
+
+\begin{figure}[htpb]
+\begin{center}
+      \includegraphics[width=8cm]{figures/nuprism_flux_fit.pdf}
+\end{center}
+\caption{A sample fit of the flux in 30 \nuprismlite fluxes to an oscillated Super-K flux is shown. Good agreement can be achieved, except at low energies due to the 4$^\circ$ maximum off-axis angle seen by \nuprismlite.}
+\label{fig:fluxfit}
+\end{figure}
+
+\begin{figure}[htpb]
+    \begin{center}
+      \includegraphics[width=8cm] {figures/weights_constrained.pdf}
+    \end{center}
+    \begin{center}
+      \includegraphics[width=8cm] {figures/Coefficients_NewFit.png}
+    \end{center}
+\caption{The weights for each off-axis bin produced in the \nuprismlite flux fits are shown after requiring that neighboring bins have similar values (top; as in Figure~\ref{fig:fluxesevents_smooth} left column) and with neighboring bins allowed to vary more freely relative to each other (bottom; as in Figure~\ref{fig:fluxesevents_smooth} right column).}
+%without any constraint (top; as in Figure~\ref{fig:fluxfit}) and after requiring that adjacent slices have similar weights (bottom; as in Figure~\ref{fig:fluxesevents}).
+%The variance of the constrained weights are smaller by an order of magnitude, which significantly reduces the statistical uncertainty in each measured bin.}
+\label{fig:weightvariance}
+\end{figure}
+
+
+\begin{figure*}
+\begin{minipage}[t]{1.0\textwidth}
+\begin{center}
+\includegraphics[width=0.45\textwidth] {figures/FittedFlux_dm2_2_56_theta23_0_61.png}
+\includegraphics[width=0.46\textwidth] {figures/NewFit_Sin0p61_dM_2p56.png}
+\includegraphics[width=0.45\textwidth] {figures/FittedFlux_dm2_2_41_theta23_0_48.png}
+\includegraphics[width=0.46\textwidth] {figures/NewFit_Sin0p48_dM2p41.png}
+\includegraphics[width=0.45\textwidth] {figures/FittedFlux_dm2_2_26_theta23_0_41.png}
+\includegraphics[width=0.46\textwidth] {figures/NewFit_Sin0p41_dM2p26.png}
+\end{center}
+\end{minipage}
+\caption{Fits of the \nuprismlite flux bins to oscillated Super-K fluxes are shown for three different sets of $\left(\theta_{23},\Delta m^2_{32}\right)$: top - (0.61, $2.56*10^{-3}$), middle - (0.48, $2.41*10^{-3}$), and bottom - (0.41, $2.26*10^{-3}$). In the left column, the weights for the off-axis bins are forced to vary smoothly with off-axis angle, while in the right column they are allowed to vary more freely.}
+\label{fig:fluxesevents_smooth}
+\end{figure*}
+
+
+
+%\begin{figure}[ht]
+%\begin{center}
+%      \includegraphics[width=8cm] {figures/FittedFlux_dm2_2_56_theta23_0_61.png}
+%      \includegraphics[width=8cm] {figures/FittedFlux_dm2_2_41_theta23_0_48.png}
+%      \includegraphics[width=8cm] {figures/FittedFlux_dm2_2_26_theta23_0_41.png}
+%\end{center}
+%\caption{Fits of the \nuprismlite flux bins to oscillated Super-K fluxes are shown for three different sets of $\left(\theta_{23},\Delta m^2_{32}\right)$: top - (0.61, $2.56*10^{-3}$), middle - (0.48, $2.41*10^{-3}$), and bottom - (0.41, $2.26*10^{-3}$). Here the weights for the off-axis bins are forced to vary smoothly with off-axis angle.}
+%\label{fig:fluxesevents_smooth}
+%\end{figure}
+
+%\begin{figure}[ht]
+%\begin{center}
+%      \includegraphics[width=8cm] {figures/NewFit_Sin0p61_dM_2p56.png}
+%      \includegraphics[width=8cm] {figures/NewFit_Sin0p48_dM2p41.png}
+%      \includegraphics[width=8cm] {figures/NewFit_Sin0p41_dM2p26.png}
+%\end{center}
+%\caption{Fits of the \nuprismlite flux bins to oscillated Super-K fluxes are shown for three different sets of $\left(\theta_{23},\Delta m^2_{32}\right)$: top - (0.61, $2.56*10^{-3}$), middle - (0.48, $2.41*10^{-3}$), and bottom - (0.41, $2.26*10^{-3}$).  Here the smoothness constraint on the weights is weak and they are allowed to vary more freely. }
+%\label{fig:fluxesevents}
+%\end{figure}
+
+
+
+
+
+
+%After determining the $c_i\left(\theta_{23},\Delta m^2_{32}\right)$ parameters in the flux fit, they are used to combine the measured muon momentum and angle distribution in each detector slice to produce the momentum vs angle distribution expected at Super-K for each given set of oscillation parameters. For the \nuprismlite analysis, the definition of signal is any event that has a muon above Cherenkov threshold and all other particles below Cherenkov threshold (i.e. true 1-ring, $\mu$-like events). Note that this differs from other definitions of signal such as CCQE events (no pions produced in the initial neutrino-nucleon interaction) or CC0$\pi$ events (no pions exiting the nucleus). This means, for example, that CC1$\pi^+$ events with a pion below Cherenkov threshold that does not produce a decay electron, which are experimentally indistinguishable from CC0$\pi$ events, are measured as part of the signal in the near detector and are naturally incorporated into the prediction at the far detector, where these events will also be present.
+
+The \nuprism candidate events are events with a single observed muon ring and no-other observed particles, matching the selection applied at Super-K.  After the $c_i\left(\theta_{23},\Delta m^2_{32}\right)$  coefficients are derived, they are used to make linear combination of observed candidate event distributions from each \nuprism off-axis bin.  In this case the observables are the momentum and polar angle of the scattered muon candidate, and hence the expected Super-K distribution of these observables is predicted by the linear combination of observed \nuprism events.
+
+In order to use these \nuprismlite measurements to make an accurate prediction of Super-K muon kinematics, a series of corrections are required. First, non-signal events from either neutral current events or charged current events with another final state particle above Cherenkov threshold, must be subtracted from each near detector slice. This is particularly important for neutral current events, which depend on the total flux rather than the oscillated flux at Super-K, but depend on the oscillated flux in the \nuprismlite linear combination. This background subtraction is model dependent, and is a source of systematic uncertainty, although neutral current interactions can be well constrained by in situ measurements at \nuprismlite. The differences in detector efficiency and resolution must also be corrected. The efficiency differences are due to differences in detector geometry and are largely independent of cross section modeling. Detector resolutions must be well determined from calibration data, but this effect is somewhat mitigated due to the fact that the near and far detector share the same detector technology. Finally, for the present analysis, the two dimensional muon momentum vs angle distribution is collapsed into a one dimensional $E_{rec}$ distribution using a transfer matrix, $M_{i,p,\theta}\left(E_{rec}\right)$. This is an arbitrary choice that does not introduce model dependence into the final result, and has only been used for consistency with existing T2K $\nu_\mu$ disappearance results. Future analyses can be conducted entirely in muon momentum and angle variables.
+
+The final expression for the \nuprismlite prediction for the Super-K event rate is then
+\begin{equation}
+\begin{split}
+N&^{SK} \left(E_{rec};\theta_{23},\Delta m^2_{32}\right)= \delta\left(E_{rec}\right)+B^{SK}\left(E_{rec};\theta_{23},\Delta m^2_{32}\right) \\
+& +\sum_{i=1}^{30}\sum_{p,\theta}c_i\left(\theta_{23},\Delta m^2_{32}\right)\left(N^{\nu P}_{i,p,\theta}-B^{\nu P}_{i,p,\theta}\right) \\
+& \times\frac{\epsilon^{SK}_{p,\theta}}{\epsilon^{\nu P}_{i,p,\theta}}M_{i,p,\theta}\left(E_{rec}\right),
+\end{split}
+\end{equation}
+where $N^{SK}\left(E_{rec}\right)$ and $N^{\nu P}_{i,p,\theta}$ are the number of expected events in Super-K $E_{rec}$ bins and \nuprismlite off-axis angle, muon momentum, and muon angle bins, respectively, $B^{SK}\left(E_{rec}\right)$ and $B^{\nu P}_{i,p,\theta}$ are the corresponding number of background events in these samples, and $\epsilon^{SK}_{p,\theta}$ and $\epsilon^{\nu P}_{i,p,\theta}$ are the efficiencies in each detector. The final correction factor, $\delta\left(E_{rec}\right)$, accounts for any residual differences between the \nuprismlite prediction and the Super-K event rate predicted by the Monte Carlo simulation. These are mostly due to the previously described imperfect flux fitting, and the fact that \nuprismlite is not sensitive to neutrino energies above $\sim 1.5$~GeV since most muons at that energy are not contained within the inner detector.
+Comparisons of the Super-K event rate and the \nuprismlite prediction for Super-K prior to applying the $\delta\left(E_{rec}\right)$ correction factor are given in Figure~\ref{fig:fluxesevents2}.
+
+%\begin{figure}[h!]
+%\begin{center}
+%      \includegraphics[width=8cm] {figures/FittedFlux_dm2_2_56_theta23_0_61.png}
+%      \includegraphics[width=8cm] {figures/FittedFlux_dm2_2_41_theta23_0_48.png}
+%      \includegraphics[width=8cm] {figures/FittedFlux_dm2_2_26_theta23_0_41.png}
+%\end{center}
+%\caption{Fits of the \nuprismlite flux slices to oscillated Super-K fluxes are shown for three different sets of $\left(\theta_{23},\Delta m^2_{32}\right)$: top - (0.61, $2.56*10^{-3}$), middle - (0.48, $2.41*10^{-3}$), and bottom - (0.41, $2.26*10^{-3}$).}
+%\label{fig:fluxesevents}
+%\end{figure}
+
+\begin{figure}[htpb]
+\begin{center}
+      \includegraphics[width=8cm] {figures/dm2_2_56_theta23_0_61_ERec_Comp.png}
+      \includegraphics[width=8cm] {figures/dm2_2_41_theta23_0_48_ERec_Comp.png}
+      \includegraphics[width=8cm] {figures/dm2_2_26_theta23_0_41_ERec_Comp.png}
+\end{center}
+\caption{The Super-K $E_{rec}$ distributions and \nuprismlite $E_{rec}$ predictions corresponding to the flux fits in Figure~\ref{fig:fluxesevents_smooth} (left column) are shown prior to applying the $\delta\left(E_{rec}\right)$ correction factor.}
+\label{fig:fluxesevents2}
+\end{figure}
+
+
+%When performing linear combinations, statistical errors can be problematic. The fits of the \nuprismlite fluxes to the oscillated Super-K fluxes do not have a unique solution, and can produce somewhat arbitrary weights for each off-axis slice. In order to reduce the variance of the flux weights, penalty terms have been added to the flux fits that require the weights in adjacent slices to be similar. Figure~\ref{fig:weightvariance} illustrates how the variance of the weights for each off-axis slice is reduced by nearly an order of magnitude by adding these penalty terms, which shrinks the statistical error in each bin to a size comparable to the systematic uncertainties. This regularization scheme produces some mismatches in the final flux fits shown in Figure~\ref{fig:fluxesevents}, particularly at energies just above the oscillation dip. This can be improved in the future by loosening the penalty terms around fast-changing features in the oscillated energy spectrum, but since this effect was found to produce a systematic uncertainty of manageable size, the following results do not yet incorporate any attempt to correct this issue.
+
+%\begin{figure}[h!]
+%    \begin{center}
+%      \includegraphics[width=8cm] {figures/weights_unconstrained.pdf}
+%    \end{center}
+%    \begin{center}
+%      \includegraphics[width=8cm] {figures/weights_constrained.pdf}
+%    \end{center}
+%\caption{The weights for each off-axis slice produced in the \nuprismlite flux fits are shown without any constraint (top; as in Figure~\ref{fig:fluxfit}) and after requiring that adjacent slices have similar weights (bottom; as in Figure~\ref{fig:fluxesevents}).
+%The variance of the constrained weights are smaller by an order of magnitude, which significantly reduces the statistical uncertainty in each measured bin.}
+%\label{fig:weightvariance}
+%\end{figure}
+
+The \nuprism technique effectively shifts uncertainties in neutrino cross section modeling into flux prediction systematic uncertainties. This is quite helpful in oscillation experiments since many flux systematic uncertainties cancel, and the important physical processes in the flux prediction, the hadronic scattering, can be directly measured by dedicated experiments using well characterized proton and pion beams. Figure~\ref{fig:fluxerrors} shows the effect of a few selected flux uncertainties on the Super-K energy spectrum and the \nuprismlite linear combination. The largest flux uncertainty is due to pion production in proton-carbon interactions, but this uncertainty mostly cancels when applied at both the near and far detector. The more problematic uncertainties are those that affect the off-axis angle, such as horn current and proton beam positioning, since these effects will impact Super-K and the \nuprismlite linear combinations differently. Figure~\ref{fig:erecerrors} shows four examples of how the Super-K $E_{rec}$ distribution and the corresponding \nuprismlite predicted distribution vary for different throws of all the flux and cross section systematic uncertainties. The predicted spectra from the nuPRISM linear combination closely tracks the true spectrum at SK, indicating a correlated effect from most systematic parameters on the nuPRISM linear combination and SK event rates.
+
+\begin{figure}[htpb]
+\begin{center}
+  \includegraphics[width=0.45\textwidth] {figures/nuprism_pred_ratio_pion_mult_15.pdf}
+  \includegraphics[width=0.45\textwidth] {figures/nuprism_pred_ratio_hcurr_5kA.pdf}
+  \includegraphics[width=0.45\textwidth] {figures/nuprism_pred_ratio_pbeam_minusy.pdf}
+\end{center}
+\caption{Systematic uncertainties on the neutrino flux prediction due to pion production (top), horn current (middle), and proton beam y-position (bottom) are shown.}
+\label{fig:fluxerrors}
+\end{figure}
+
+\begin{figure}[htpb]
+\begin{center}
+  \begin{minipage}[t]{.45\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth] {figures/nuPRISM_SK_Throws_1.png}
+    \end{center}
+  \end{minipage}
+  \begin{minipage}[t]{.45\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth] {figures/nuPRISM_SK_Throws_2.png}
+    \end{center}
+  \end{minipage}
+\end{center}
+\caption{Variations in the Super-K $E_{rec}$ spectrum and the corresponding \nuprismlite prediction are shown for 4 throws of all the flux and cross section parameters. Significant correlations exist between the the near and far detector, which help to reduce the systematic uncertainty.}
+\label{fig:erecerrors}
+\end{figure}
+
+The final covariance matrices are shown in Figure~\ref{fig:covmat}. The largest errors are at high energies where no \nuprismlite events are present due to the smaller diameter of the detector relative to Super-K. In this region, the Super-K prediction is subject to the full flux and cross section uncertainties with no cancelation at the near detector. Similarly, at energies below 400 MeV the errors get larger since the current 4$^\circ$ upper bound in off-axis angle prohibits the \nuprismlite flux fit from matching the Super-K spectrum at low energies.
+
+\begin{figure}[htpb]
+\begin{center}
+  \begin{minipage}[t]{.45\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth] {figures/FullCov.png}
+    \end{center}
+  \end{minipage}
+  \begin{minipage}[t]{.45\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth] {figures/StatsCov.png}
+    \end{center}
+  \end{minipage}
+  \begin{minipage}[t]{.45\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth] {figures/FluxXSecCovZoom.png}
+    \end{center}
+  \end{minipage}
+  \begin{minipage}[t]{.45\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth] {figures/FluxOnlyCovZoom.png}
+    \end{center}
+  \end{minipage}
+\end{center}
+\caption{Covariance matrices are shown (from top to bottom) for the total, statistical, systematic, and flux only uncertainties. The bin definitions (in GeV) are 0: (0.0,0.4), 1: (0.4,0.5), 2: (0.5,0.6), 3: (0.6,0.7), 4: (0.7,0.8), 5: (0.8,1.0), 6: (1.0,1.25), 7: (1.25,1.5), 8: (1.5,3.5), 9: (3.5,6.0), 10: (6.0,10.0), 11: (10.0,30.0)}
+\label{fig:covmat}
+\end{figure}
+
+Using the \nuprismlite covariance matrices shown in Figure~\ref{fig:covmat} in place of those produced by ND280, the standard T2K \numu disappearance oscillation analysis is repeated. The results are shown in Figure~\ref{fig:numuresults}. As expected, the \nuprismlite analysis is largely insensitive to cross section modeling. Replacing the default new model with the Nieves multinucleon model now produces a 1.0\% uncertainty in $\sin^2\theta_{23}$, and the corresponding Martini uncertainty is 1.2\%. More importantly, this uncertainty is now constrained by data rather than a pure model comparison. These uncertainties are expected to be further reduced as the flux fits are improved, and \nuprismlite constraints on NC backgrounds and information from ND280 are incorporated into the analysis.
+
+\begin{figure}[htpb]
+\begin{center}
+  \begin{minipage}[t]{.45\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth] {figures/Nieves_Sin2theta_Comp.png}
+    \end{center}
+  \end{minipage}
+  \begin{minipage}[t]{.45\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth] {figures/Martini_Sin2theta_Comp.png}
+    \end{center}
+  \end{minipage}
+\end{center}
+\caption{The variation in the measured $\sin^2\theta_{23}$ due to multinucleon effects in the \nuprismlite \numu analysis are shown. For the Nieves and Martini fake datasets, the RMS produces 1.0\% and 1.2\% uncertainties, respectively, with no measurable bias. This is a large improvement over the standard T2K results shown in Figure~\ref{fig:nievesmartini}}
+\label{fig:numuresults}
+\end{figure}
+
+\clearpage
+
+\subsection{\nuprismlite 1-Ring e-like Ring Measurements}
+
+Single ring e-like events in \nuprismlite at an off-axis angle of 2.5$^\circ$ in principle provide a reliable estimate of the $\nu_e$ appearance background at SK, since the near-to-far extrapolation correction is small. This includes beam $\nu_e$, NC$\pi^0$, and NC single $\gamma$ (NC$\gamma$) backgrounds with production cross section and detection efficiency in water folded in. For a $\nu_e$ background study with better than $\sim$10\% precision, more careful studies are required: for example, the $\gamma$ background from outside the detector scales differently between the near and far detectors due to the differences in surface to volume ratio. Contributions from CC backgrounds, e.g. CC$\pi^0$ events created outside the detector, would also be different between near and far detector due to oscillation. Careful identification of each type of single ring e-like event is required. As described below, the \nuprismlite capability of covering wide off-axis ranges makes such a study possible. It also enables relative cross section measurements between $\nu_e$ and $\nu_\mu$, which are likely to be limiting systematic uncertainties for measuring CP violation.
+
+The \nuprismlite detector will also provide a unique and sensitive search for sterile neutrinos in the $\nu_\mu\rightarrow\nu_e$ channel, and eventually the $\nu_\mu\rightarrow\nu_\mu$ channel, particularly when ND280 is incorporated into the analysis. The 1km location of nuPRISM for the off-axis peak energies of 0.5-1.0GeV matches the oscillation maximum for the sterile neutrinos hinted by LSND and MiniBooNE. The presence or absence of an excess of $\nu_e$ events as a function of off-axis angle will provide a unique constraint to rule out many currently proposed explanations of the MiniBooNE excess, such as feed-down in neutrino energy due to nuclear effects. The off-axis information also allows for a detailed understanding of the backgrounds, since they have a different dependence on off-axis angle than the oscillated signal events.
+
+%The backgrounds inND280 tracker $\nu_e$ analysis is currently dominated by the background coming from outside. The 2 meters of outer veto and 2m of fiducial cut from the wall as in SK analysis would greatly reduce these main backgrounds.
+\begin{figure}[htpb]
+\centering\includegraphics[width=8cm,angle=0]{figures/miniboone-nue-plot.pdf}
+\caption{Reconstructed neutrino energy distribution for the $\nu_e$ appearance analysis of MiniBooNE
+\cite{miniboone-nue}.}
+% MiniBooNE collaboration, Phys.Rev.Lett.102(2009)101802
+\label{fig:miniboone}
+\end{figure}
+Figure~\ref{fig:miniboone} shows the single ring e-like events observed by MiniBooNE. There are several sources of events:
+\begin{itemize}
+  \item Beam $\nu_e$ from muons and kaons
+  \item NC$\pi^0$ with one of the photons missed
+  \item NC$\gamma$ ($\Delta \rightarrow N \gamma$) 
+  \item "Dirt" events: background $\gamma$ coming from outside
+  \item Others, such as CC events with $\mu$ misidentified as electron
+  \item Possible sterile neutrino contribution causing $\nu_\mu\rightarrow\nu_e$ oscillation
+\end{itemize}
+There is a significant discrepancy between data and the Monte Carlo prediction. For precision $\nu_e$ appearance studies, such as CP violation, it is essential to understand the origin of this discrepancy.
+
+\subsubsection{Beam $\nu_e$ and $\nu_e$ cross section study}\label{sec:nuexsec}
+The beam $\nu_e$ represents only 1\% of the total neutrino flux and about 0.5\% at the off-axis peak energy at $E_\nu$=600MeV. Thanks to the excellent $\mu$/e particle identification and $\pi^0$ suppression in water Cherenkov detectors when using fiTQun, the $\nu_\mu$ background is expected to be suppressed, similar to the suppression seen at Super-K. Since the beam $\nu_e$'s originate from three body decays of muons and kaons, their off-axis dependence is more mild than the dependence seen in the $\nu_\mu$ flux. By taking advantage of the steep off-axis angle dependence of the $\nu_\mu$ flux, it is possible to study background contamination in detail. For example, the $\nu_\mu$ backgrounds are largely suppressed compared to beam $\nu_e$ at an off-axis angle larger than 3 degrees. The beam $\nu_e$ events at \nuprismlite provide an opportunity to precisely study $\nu_e$ cross sections, for which there is currently very little data available. The cross section difference between $\nu_e$ and $\nu_\mu$, which does not cancel in the near to far detector extrapolation in $\nu_\mu \rightarrow \nu_e$ appearance, is considered to be an eventual limitation of the CP violation sensitivity~\cite{nuSTORM}. 
+%nuSTORM - Neutrinos from STORed Muons: Proposal to the Fermilab PAC, arXiv:1308.6822
+The differences in the $\nu_e$ and $\nu_\mu$ cross sections come from kinematical phase space differences due to the difference in mass between electron and muons, radiative corrections, possible second class currents, which also depend on lepton mass, and nuclear effects~\cite{nue-numu-cross-section}.
+% 	Melanie Day, Kevin S. McFarland, Differences in Quasi-Elastic Cross-Sections of Muon and Electron Neutrinos Phys.Rev. D86 (2012) 053003 
+%The nuSTORM project proposes to study the $\nu_e$/$\nu_\mu$ cross section ratio down to 1-2\% level using neutrinos from a muon storage ring. The advantage of nuSTORM is that the flux ratio between $\nu_e$ and $\nu_\mu$ is well known from muon decays in the ring. 
+%In T2K, the current systematic uncertainty on the beam $\nu_e$ rate at Super-K, constrained by the ND280 $\nu_\mu$ measurement, is 4.8\%, without including the cross section difference. Considering the farther distance ($\sim$1km) with less near-to-far extrapolation error and the measurement of different off-axis $\nu_\mu$ rate for \nuprismlite, we would expect significantly better than 4.8\% in flux systematics for the relative cross section measurement between $\nu_e$ and $\nu_\mu$. 
+%In the next several months, we will study how much more we can reduce this relative $\nu_e$ and $\nu_\mu$ flux uncertainties.
+
+\nuprismlite provides a unique method for canceling the flux differences between $\nu_e$ and $\nu_\mu$. Using a technique similar to that used in the \nuprismlite \numu disappearance analysis, it is possible to use linear combinations of \numu measurements at different off-axis angles to reproduce the shape of the intrinsic \nue flux in the large off-axis angle section of \nuprism:
+\begin{equation}
+\Phi_{\nu_e}(E_\nu) = \Sigma c_i \Phi^i_{\nu_\mu}(E_\nu),
+\end{equation}
+where $\Phi_{\nu_e}(E_\nu)$ is the \nuprism $\nu_e$ flux of interest, $\Phi^i_{\nu_\mu}(E_\nu) $ is the $\nu_\mu$ flux at the $i^{th}$ off-axis position and $c_i$ is the weight factor for the $i^{th}$ off-axis position. Using this combination, the ratio of the \nue and \numu double differential cross sections in momentum and angle can be directly measured, averaged over the $\nu_e$ flux spectrum.
+
+Fig.~\ref{fig:nuefluxfits} shows that the \nuprism $2.5^{\circ}-4.0^{\circ}$ off-axis $\nu_e$ flux can be reproduced by the linear combination of $\nu_{\mu}$ fluxes for the 0.3-1.5 $GeV$ energy range.  Above 1.5 $GeV$ the $\nu_{e}$ flux cannot be produced since the fall-off of the $\nu_{\mu}$ fluxes is steeper.  However, this region will have little impact for the ratio measurement for a couple of reasons.  First, Fig.~\ref{fig:nuefluxfits} shows the flux multiplied by the energy to approximate the effect of the cross section, but the cross section for CC interactions producing no detectable pions is growing more slowly than this linear dependence and the rate from the high energy flux will be lower than it appears in the figure.  Second, the analysis will be applied in the limited lepton kinematic range where the \nuprism muon acceptance is non-zero, cutting out forward produced high momentum leptons.  This will also suppress the contribution from the high energy part of the flux.  
+
+\begin{figure}[htpb]
+\begin{center}
+  \begin{minipage}[t]{.47\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth] {figures/nuprism_nue_fit.pdf}
+    \end{center}
+  \end{minipage}
+  \begin{minipage}[t]{.47\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth] {figures/sk_nue_fit.pdf}
+    \end{center}
+  \end{minipage}
+\end{center}
+\caption{Fits of the off-axis \nuprism $\nu_{\mu}$ fluxes to the \nuprism $2.5^{\circ}-4.0^{\circ}$ off-axis $\nu_e$ flux (top) and the oscillated+intrisic beam $\nu_e$ at SK (bottom) assuming sin$^{2}2\theta_{13}$=0.094, $\delta_{cp}$=0, $\Delta m^{2}_{32}=2.4\times10^{-3}$eV$^{2}$ and sin$^{2}\theta_{23}$=0.5. }
+\label{fig:nuefluxfits}
+\end{figure}
+
+
+\subsubsection{Predicting oscillated $\nu_e$ for the appearance measurement} 
+
+As discussed in the previous section, the cross section ratio of $\sigma_{\nu_{e}}/\sigma_{\nu_{\mu}}$ can be measured using beam $\nu_{e}$ and $\nu_{\mu}$ interaction candidates in \nuprism.  The measured cross section ratio can be used to apply the \nuprism extrapolation method to predict the $\nu_{e}$ candidates at SK for the appearance measurement.  Following the procedure used for the disappearance analysis, the oscillated+intrinsic beam $\nu_{e}$ flux is described by a linear combination of the \nuprism off-axis $\nu_{\mu}$ fluxes:
+\begin{equation}
+\begin{split}
+\Phi^{SK}_{\nu_{\mu}}(E_{\nu})P_{\nu_{\mu}\rightarrow\nu_{e}}(E_{\nu}|\theta_{13},\delta_{cp},...)+\Phi^{SK}_{\nu_{e}}(E_{\nu})  \\
+ = \sum c_i(\theta_{13},\delta_{cp},...) \Phi^i_{\nu_\mu}(E_\nu).
+\end{split}
+\end{equation}
+
+$\Phi^{SK}_{\nu_{\mu}}(E_{\nu})$ and $\Phi^{SK}_{\nu_{e}}(E_{\nu})$ are the predicted $\nu_{\mu}$ and $\nu_{e}$ fluxes at SK in the absence of oscillations. $P_{\nu_{\mu}\rightarrow\nu_{e}}$ is the $\nu_{\mu}$ to $\nu_{e}$ oscillation probability.  $\Phi^i_{\nu_\mu}(E_\nu)$ is the $i^{th}$ off-axis $\nu_{\mu}$ flux in \nuprism and the $c_i$ are the derived coefficients that depend on the oscillation hypothesis being tested.  Fig.~\ref{fig:nuefluxfits} shows the level of agreement that can be achieved between the linear combination of \nuprism fluxes and the predicted SK $\nu_{e}$ flux for a particular oscillation hypothesis.  The agreement is excellent between 0.4 and 2.0 GeV.  Below 0.4 GeV, the second oscillation maximum is not reproduced, but the rate from this part of the flux is small.
+
+Using the derived $c_i$ coefficients, the measured muon $p,\theta$ distributions from \nuprism are used to predict the SK $p,\theta$ distribution for the $\nu_e$ flux.  An additional correction must be applied to correct from the predicted muon distribution for $\nu_{\mu}$ interactions to the predicted electron distribution for $\nu_e$ interactions.  This correction is derived from the cross section models which are constrained by the ratio measurement described in the previous section.
+
+\subsubsection{Backgrounds from $\nu_\mu$'s}
+The backgrounds from $\nu_\mu$ comes from NC$\pi^0$ events with one $\gamma$ missed, NC$\gamma$ events ($\Delta \rightarrow N \gamma$), CC events with e/$\mu$ mis-ID, $\gamma$'s coming from $\nu$ (mainly $\nu_\mu$) interaction outside the detector (dirt or sand events). Because the $\nu_\mu$ energy spectrum changes dramatically as a function of vertex positions (= off-axis angles) in nuPRISM, these background processes can be studied and verified by comparing their vertex distributions. 
+
+The NC$\pi^0$ rate can be measured by detecting two $\gamma$'s in nuPRISM. By using the hybrid $\pi^0$ technique used in T2K-SK analysis, the $\pi^0$ backgrounds with a missing $\gamma$ can be estimated using the beam $\nu_e$ and Michel electrons as electron samples combined with a Monte Carlo $\gamma$ event. The NC$\pi^0$ rate can also be used to estimate the NC$\gamma$ rate. As mentioned above, dirt/sand background is suppressed by having fully active outer veto detector and the fiducial volume cut. The vertex distribution of the $\nu_e$ events as a function of the distance from the (upstream) wall provides an excellent confirmation of the suppression of the background, as is done in the T2K-SK analysis.
+
+%\subsubsection{Sterile neutrino search}
+%The 1km location of nuPRISM for the off-axis peak energies of 0.5-1.0GeV matches the oscillation maximum of the sterile neutrinos hinted by LSND and miniBooNE. One can choose the off-axis position which maximizes the oscillation for given oscillation parameter, and thus enhance the signal. By comparing the different off-axis angles, we can positively identify the signal by its enhancement at the oscillation maximum off-axis position. The off-axis information also helps detailed understanding of the backgrounds, which have different off-axis dependence, in particular for the main beam $\nu_e$ events.
+%For 700kW beam for one year ($3\times 10^{20}$ POT), T2K predicts 200 $\nu_\mu$ events at SK. For a 20 tonne fiducial (2m diameter and 6m height)  at 1km, this corresponds to 56,000$\nu_\mu$ events. Even for the $\sin^22\theta_{\mu e}=10^{-3}$, we would expect 56 $\nu_e$ appearance events. The beam $\nu_e$ events at this peak energy is 0.5\% of $\nu_\mu$ or 280 events, and thus this corresponds to 56/$\sqrt{280}$=3.3$\sigma$ significance. More detailed sensitivity studies is presented in the following section.
+
+\subsubsection{Sterile Neutrino Sensitivity}
+
+\def\stme       {\ensuremath{\textrm{sin}^2(2\theta_{\mu e})}\xspace}
+\def\dmsqfo     {\ensuremath{\Delta m^{2}_{41}\xspace}}
+\def\nue        {\ensuremath{\nu_e}\xspace}
+\def\nueb       {\ensuremath{\nub_e}\xspace}
+\def\nuenueb    {\ensuremath{\nue\nueb}\xspace}
+\def\numu        {\ensuremath{\nu_\mu}\xspace}
+\def\numub       {\ensuremath{\nub_\mu}\xspace}
+
+
+The position of \nuprismlite, at 1~km from the neutrino source, as well as its huge fiducial mass makes this detector an excellent candidate for the studies of non-standard 
+short-baseline neutrino oscillations. This section presents an initial, conservative sensitivity of nuPRISM to the so-called LSND anomaly. The LSND and MiniBooNE experiments detect an undetermined excess in their \nue and \nueb channels, which may be explained by sterile neutrino mixing with a 
+$\stme \sim 10^{-3}$ and $ \dmsqfo \sim 2eV^2$ in the 3+1 model~\cite{miniboone-nue}. %\cite{steriles_whitepaper}.
+
+Here we present the sensitivity studies for a two different layouts of the \nuprism detector: 3~m radius and 4~m 
+radius. We performed our $\nue$ selection analysis considering an exposure of $4.6\times 10^{20}$ 
+p.o.t. with a horn configuration enhancing neutrinos and defocusing anti-neutrinos. The possible $\nue$ disappearance due to sterile mixing is neglected as in 
+the case of the LSND and MiniBooNE analyses. This is justified by the fact that we have only $1\%$ 
+of $\nue$ in the beam and the $\numu \rightarrow \nue$ channel will be dominant. In the case where both 
+$\nue$ disappearance and appearance are considered, our current results can be seen as 
+lower limits for the mixing angle $\stme$.
+
+We test the simplest sterile neutrino model by adding to the standard three-neutrino parametrization one additional mass state, mainly sterile, with a mass difference relative to the other states of $\Delta m^2_{41}$. 
+Since the mixing with the sterile neutrino is dominant at short baselines, such as the \nuprismlite baseline, the new mass state is expected to be much larger ($\sim eV^2$) than the two standard neutrino mass splittings. In such conditions the two-neutrino approximation is valid and provides the following \nue
+appearance probability,
+\begin{equation}
+\begin{split}
+ P_{\numu\nue} & = P(\numu \rightarrow \nue) \\
+ & = \stme\sin^2\left( 1.27 
+\dmsqfo\mbox{[eV$^2$]}\dfrac{L\mbox{[km]}}{E\mbox{[GeV]}}\right),
+\end{split}
+\label{eq:app}
+\end{equation}
+
+where $L$ is the neutrino flight path fixed at $1km$ and $E$ the energy of the neutrinos. $\stme = 
+4|U_{e4}|^2|U_{\mu4}|^2$ where $U$ are the new elements in the extended PMNS matrix. We consider an 
+analysis on the reconstructed energy ($E_{rec}$) and off-axis angle (OAA) shape informations, so 
+both rate and shape are taken into account by building bidimensional binned templates. The expected 
+number of background and signal events entering in the $\nue$ selection are shown in Table~\ref{tab:steriles_events} for different oscillation hypothesis and both detector radius cases.
+
+% and the $E_{Rec}$ distributions for 
+% five cases of OAA's is shown in Fig. \ref{fig:steriles_erec}. \\
+
+The systematic errors due to the flux and the cross-section uncertainties are included through a 
+covariance matrix that is calculated using toy Monte Carlo throws. A $\chi^2$ test for a binned template 
+of 10 $E_{Rec}$ bins and 10 OAA bins is performed between 0.2~MeV and 4~MeV, in order to obtain 
+the expected sensitivity in the bidimensional oscillation parameter space ($\stme,\dmsqfo$). For 
+each oscillation hypothesis the $\chi^2$ value is given by
+\begin{equation}
+\begin{split}
+%\begin{align}
+\chi^2 = \vec{n}_s \left(\stme, \dmsqfo \right)^T \times V^{-1} \\
+ \times \vec{n}_s\left(\stme,\dmsqfo 
+\right)
+\end{split}
+\end{equation}
+%\end{align}
+
+where $\vec{n}_s$ is the n-tuple of number of expected signal events due to $\numu \rightarrow 
+\nue$ in $E_{Rec}$ and OAA bins, and $V$ is a $100\times100$ covariance matrix that includes the 
+statistics and systematic errors. The $\chi^2$ is computed for each point of a bidimensional grid 
+and the constant $\Delta \chi^2$ method is applied to determine the contours for the regions 
+excluded at the 90\% C.L. The final sensitivity is shown in in Fig. \ref{fig:sterile_sensi} for the 
+90\% C.L. along with a comparison with the MiniBooNE antineutrino results.
+
+We observe that the final sensitivity, taking into account statistical uncertainties as well as flux and cross section systematic errors, contains, for the 4m inner detector radius case,
+the full MiniBooNE allowed 
+region at 90\% C.L. Regarding the 3m case, the detector is able to 
+explore the whole low $\dmsqfo$ region allowed by MiniBooNE and it covers most of the high 
+$\dmsqfo$ part. The sensitivity has been computed without using any constraints from ND280. In the nuPRISM analysis scenario, ND280 has the role of reducing 
+model uncertainties in flux and cross sections, so the final errors for a full \nuprism+ND280 analysis are expected to be significantly reduced, but have not yet been computed.
+Moreover, a \nue appearance analysis allows for the use of the nuPRISM \numu analysis to further constrain 
+the flux and cross section systematics, which should further improve upon the sensitivity
+predicted in this study.
+%On the other hand, detector systematic errors were not taken into 
+%account yet and big efforts are focused to provide estimations on them.
+
+
+% We observe how the sensitivity without considering systematic errors contains pretty much of the 
+% LSND region, meaning that it is possible study the LSND anomaly if systematic errors are small. 
+% With a very conservative expectation of the flux and cross-section uncertainties, we partially 
+% cover the LSND region for the 90\% C.L. We would like to highlight, that our analysis is based on 
+% efficiencies and uncertainties estimated with SuperKamiokande, and that errors will probably 
+% decrease in the future, and hence, the actual sensitivity will be in a place whithin the parameter 
+% space limited by the no-systematic and the full-systematic contours. We tested a more realistic 
+% value of the systematic errors dividing them by two. This can be achieve in the near future with 
+% ND280 data and its corresponding contour is shown in \ref{fig:sterile_sensi}. \\
+% 
+% Furthermore, other valuable information can be itegrated into the analysis, namely, the 
+% reconstructed energy or the linear combinations. They help to control the systematic uncertainties 
+% much better than the current ones are, so the sensitivity is surely going to improve. Furthermore, 
+% an optimized definition of the FV will increase the statistics sensibly and the simulated amount of 
+% p.o.t. corresponds to only one year exposure approximately with JPARC running at maximum power as 
+% expected.
+
+
+% \begin{table}
+%  \caption{Expected number of events for each oscillation hypothesis.}
+%  \begin{center}
+%   \begin{tabular}{ r c c c c c }
+% \hline
+% \hline
+%  $(\stme, \dmsqfo)$  & $(0.001,1eV^2)$ & $(0.005,1eV^2)$ & $(0.01,10eV^2)$ & $(0.001,10eV^2)$ \\
+% \hline
+%   Signal             &     35.9        &     179.5       &    359.1        &      31.2 \\
+%   $\nue$ background  & \multicolumn{4}{c}{1284}     \\
+%   $\numu$ background & \multicolumn{4}{c}{992}     \\
+% \hline
+%   \end{tabular}
+%  \end{center}
+% \label{tab:steriles_events}
+% \end{table}
+
+\begin{table}
+\begin{small}
+ \caption{Expected number of events in the \nue selection for each oscillation hypothesis, and for the two detector inner diameters being considered.}
+ \begin{center}
+  \begin{tabular}{ c c c c }
+\hline
+\hline
+& $(\stme, \dmsqfo)$  & 3~m radius & 4~m radius \\
+\hline
+$\numu \rightarrow \nue$ Signal &$(0.001,1~eV^2)$      &  87.6    &   484.3      \\
+                                &$(0.005,1eV^2)$      &  437.8   &   2421.7     \\
+				&$(0.01,10eV^2)$      &  635.2   &   3521.0     \\
+				&$(0.001,10eV^2)$     &  63.5    &   352.1      \\
+\hline
+Background                      &$\nue$               &  1076.2  &   6695.5     \\
+                                &$\numu$              &  983.8   &   4700.7     \\
+\hline
+\hline
+  \end{tabular}
+ \end{center}
+\label{tab:steriles_events}
+\end{small}
+\end{table}
+
+
+\begin{figure}[htpb]
+\centering
+% \includegraphics[width=13cm]{./figures/sensi_nuprism_mb_allerec.eps}
+\includegraphics[width=7cm]{./figures/sensi_nuprism_3m_10x10-eps-converted-to.pdf}
+\includegraphics[width=7cm]{./figures/sensi_nuprism_4m_10x10-eps-converted-to.pdf}
+\caption{90\% C.L. expected sensitivities for an exposure of $4.6 \times 10^20$ p.o.t. for three scenarios: statistical uncertainty only, both statistical uncertainties and flux systematic uncertainties, and statistical uncertainties with flux and cross-section systematic uncertainties. The sensitivity curves are shown for the two detector configuration considered: 3m (top) and 4m (bottom) inner detector radius. For comparison, the MiniBooNE allowed region at 90\% C.L. in antineutrino mode is shown in red.}
+\label{fig:sterile_sensi}
+\end{figure}
+
+
+\subsection{$\bar{\nu}_\mu$ Measurements}
+
+%Section goals:
+%\begin{itemize}
+%\item Reproduce wrong-sign flux in anti-nu mode with linear combination from nu-mode.
+%\item Show flux plots, if available.
+%\end{itemize}
+
+In principle, the \nuprism technique of using multiple off axis angles to measure the oscillated $p_\mu$ and $\theta_\mu$ for each oscillated flux will work for anti-neutrinos as well. However, when running the T2K beam in anti-neutrino mode, there is a significant wrong-sign background from neutrino interactions. To disentangle these neutrino and anti-neutrino interactions, linear combinations of the neutrino-mode data can be used to construct the wrong-sign flux in anti-neutrino mode, analogous to the procedure used in Section~\ref{sec:disap} to construct the Super-K oscillated spectra and in Section~\ref{sec:nuexsec} to construct the electron neutrino spectrum. Hence, the neutrino flux in the anti-neutrino mode is described with the linear combination of neutrino mode fluxes:
+\begin{equation}
+\Phi^{\bar{\nu}mode}_{\nu_{\mu}}(E_{\nu},\theta_{oa}) = \sum c_i(\theta_{oa}) \Phi^{i,\nu mode}_{\nu_\mu}(E_\nu).
+\end{equation}
+$\Phi^{\bar{\nu}mode}_{\nu_{\mu}}(E_{\nu},\theta_{oa})$ is the anti-neutrino mode $\nu_{\mu}$ (wrong-sign) flux for a given off-axis angle $\theta_{oa}$.    $\Phi^{i,\nu mode}_{\nu_\mu}(E_\nu)$ is the neutrino mode $\nu_{\mu}$ (right-sign) flux for the $i^{th}$ off-axis bin and $c_i$ is the weight for the $i^{th}$ off-axis bin that depends on the off-axis angle for which the anti-neutrino mode wrong sign flux is being modeled.  
+
+Linear combinations to reproduce the wrong-sign $1.0-2.0^{\circ}$, $2.0-3.0^{\circ}$ and $3.0-4.0^{\circ}$ anti-neutrino mode fluxes are shown in Figure~\ref{fig:wrongsignfit}.  As with the combinations to produce the $\nu_{e}$ flux, the agreement is good up to about 1.5 GeV in neutrino energy.  As discussed in Section~\ref{sec:nuexsec}, it is less important to reproduce the high energy part of the flux since high energy interactions are suppressed by the event topology selected and the muon acceptance of \nuprism.
+
+\begin{figure}[htpb]
+\begin{center}
+      \includegraphics[width=8cm] {figures/nuprism_numu_ws_fit_1to2.pdf}
+      \includegraphics[width=8cm] {figures/nuprism_numu_ws_fit_2to3.pdf}
+      \includegraphics[width=8cm] {figures/nuprism_numu_ws_fit_3to4.pdf}
+\end{center}
+\caption{The \nuprism anti-neutrino mode wrong-sign $\nu_{\mu}$ fluxes for $1.0-2.0^{\circ}$ (top), $2.0-3.0^{\circ}$ (middle) and $3.0-4.0^{\circ}$ (bottom), and the \nuprism linear combinations of neutrino mode $\nu_{\mu}$ fluxes.  }
+\label{fig:wrongsignfit}
+\end{figure}
+
+As shown Figure~\ref{fig:wrongsignflux}, there is significant correlation between the wrong-sign neutrino flux in anti-neutrino mode and the neutrino-mode flux, so the flux uncertainties will give some cancelation using this method. After subtracting the neutrino background, the remaining $\bar{\nu}_\mu$ events can 
+then be combined as in the neutrino case to produce oscillated spectra at Super-K. 
+
+\begin{figure}[htpb]
+\begin{center}
+  \begin{minipage}[t]{.45\textwidth}
+    \begin{center}
+      \includegraphics[width=\textwidth] {figures/right_wrong_sign_flux_correlations.pdf}
+    \end{center}
+  \end{minipage}
+\end{center}
+\caption{The correlations between the flux normalization parameters for energy bins from 0 to 5 GeV for the neutrino mode and anti-neutrino mode $\nu_{\mu}$ fluxes. }
+\label{fig:wrongsignflux}
+\end{figure}
+
+
+
+\subsection{Cross Section Measurements}
+\label{sec:xsec}
+
+A unique feature of \nuprismlite is the ability to measure the true neutrino energy dependence of both CC and NC interactions using nearly monoenergetic beams. These measurements are expected to significantly enhance the reach of oscillation experiments, since the energy dependence of signal and background processes must be understood in order to place strong constraints on oscillation parameters. As explained in Section~\ref{sec:disap},  additional multinucleon processes, with a different energy dependences than the currently modeled CCQE and CC1$\pi$ cross sections can affect the T2K oscillation analysis. In the current disappearance analysis, there are also substantial uncertainties on NC1$\pi^+$ and NC1$\pi^0$ processes (for disappearance and appearance respectively). As a result, future proposed experiments which use water as a target (e.g. Hyper-Kamiokande and CHIPS) will directly benefit from the \nuprismlite cross section program; other programs benefit less directly through a critical validation of our assumptions of the energy dependence of the cross section on oxygen.
+It is also not just long baseline oscillation programs which benefit, as cross section processes at T2K's flux peak are also relevant for proton decay searches and atmospheric neutrino oscillation analyses. Finally, should T2K run an antineutrino beam during \nuprismlite operation, all arguments made above equally apply for  antineutrino cross section measurements at \nuprismlite.
+ 
+One should also consider the study of neutrino interactions interesting in its own right as a particle/nuclear theory problem. As an example, MiniBooNE's cross section measurements have received much attention from the nuclear theory community who predominantly study electron scattering data.
+
+Some of the difficulties in improving our understanding of neutrino cross sections stems from the fact that we do not know, for a given interaction, the incident neutrino energy. Any given measurement is always averaged over the entire flux. The observed rate $N$ in a given observable bin $k$ depends on the convolution of the cross section, $\sigma$, and the flux, $\Phi$:
+
+\begin{equation}
+N^k  = \epsilon_k  \int \sigma(E_\nu) \Phi(E_\nu) dE_\nu
+\end{equation}
+
+where $\epsilon$ is the efficiency. Therefore, our understanding of the energy dependence of neutrino interaction for a particular experiment is limited by the flux width and shape. One then attempts to use different neutrino fluxes (with different peak energies) to try to understand the cross section energy dependence. As discussed later in this section, for CC interactions we have many examples of disagreements between experiments, and for NC, we have a limited number of measurements made, and the lack of information and conflicting information leaves unresolved questions about the true energy dependence of the cross section.
+
+In addition to providing new measurements on oxygen, there are two main advantages of \nuprismlite over the current paradigm. First, we can directly infer the energy dependence of the cross section by combining measurements at different off-axis angles into a single measurement, as if we would have had a Gaussian neutrino flux source. Second, and equally important, we can fully understand the correlations between energy bins, in a way not possible previously when comparing across experiments with entirely different flux setups.  
+
+In CC interactions, previous experiments use the muon and hadronic system to try to infer the neutrino energy dependence.  \nuprismlite has the capability to directly test if the neutrino energy dependence inferred from the lepton information is consistent with the energy information determined from the off-axis angle. \nuprismlite will also for the first time probe the energy dependence of NC cross sections within a single experiment.  
+%In the case of NC interactions, we only can compare measurements made with different fluxes to understand the energy dependance of the NC cross section, and when only 1 or a few masurements exist, it is difficult to che
+
+ Furthermore, there is no data for the kinematic information of pions out of NC\pip interactions. However, NC\pip is one of the backgrounds in the current T2K \rmu selection used for the disappearance analysis. A direct measurement of NC\pip, and a measurement of the pion momentum and angular distributions would reduce the substantial uncertainties on this process (in both cross section and detector efficiency) in the analysis.
+
+%% This section may just be a repeat, so can consider removing
+%If we want to measure the observed rate $N$, in a given observable bin $k$ is given by:
+
+%\begin{equation}
+%N^k  = \epsilon_k  \int \sigma(E_\nu) \Phi(E_\nu) dE_\nu
+%\end{equation}
+
+%where $\epsilon$ is the efficiency, $\sigma$ is the cross section, and $\Phi$ is the flux in that bin. Now we consider a carefully chosen sum over measurements in the bin taken with different fluxes denoted by index $i$:
+
+%\begin{equation}
+%\frac{\sum_i c_i N_i^k}{\epsilon_k }  =  \sum_i c_i \int \sigma(E_\nu) \Phi_i(E_\nu) dE_\nu =  \int \sigma(E_\nu) Ae^{\frac{-(E_\nu-E^{avg}_\nu)^2}{2s^2}} dE_\nu 
+%\end{equation}
+
+%This is equivalent to:
+%\begin{equation}
+%\frac{\sum_i c_i N_i^k}{\epsilon_k }  =   \int \sigma(E_\nu-E_\nu^{avg}) Ae^{\frac{-(E_\nu)}{s^2}} dE_\nu 
+%\end{equation}
+
+%While we cannot further simplify this expression without knowing the exact functional form of $\sigma$, we recognize that combinations of measurements would be the same as a single measurement according to a Gaussian flux. We then can divide out the flux assuming $\sigma(E_\nu-E_\nu^{avg})$ is approximately constant over that flux for a cross section measurement in that bin.
+%% 
+
+Oxygen is an interesting target material for studying cross sections because few measurements exist and it is a medium sized nucleus where the cross section is calculable. \nuprismlite will provide differential measurements in muon and final state pion kinematic bins. While these kinds of measurements will be done with the ND280 P0D and FGD2 detectors in the near term, \nuprismlite will have more angular acceptance than those measurements and so enhances the T2K physics program.
+
+Possible cross section measurements, based on observable final state topologies, at \nuprismlite include:
+
+\begin{itemize}
+\item CC inclusive
+\item CC0$\pi$ 
+\item CC1$\pi^+$, $\pi^0$ (resonant and coherent)
+%\item NC elastic (with a proton final state)
+\item NC1$\pi^+$, $\pi^0$ (resonant and coherent) 
+\item NC1$\gamma$ 
+\end{itemize}
+
+The above list is based on expected water Cherenkov detector capabilities from experience with MiniBooNE, K2K 1 kton and Super-Kamiokande (SK) analyses. All CC measurements can be done for \numu and \nue flavors due to the excellent e-$\mu$ separation at \nuprismlite.  Antineutrino cross section measurements are also possible with similar selections. A brief summary of each measurement follows.
+Table~\ref{tab:rates} shows the number of events in the FV of \nuprismlite, broken down by interaction mode.
+
+\begin{table}
+ \caption{Expected number of events in the fiducial volume of \nuprismlite for $4.5\times 10^{20}$ POT, separated by true interaction mode in NEUT.}
+ \begin{center}
+  \begin{tabular}{ c c c c  }
+\hline
+\hline
+Int. mode  & 1-2$^\circ$ & 2-3$^\circ$ & 3-4$^\circ$ \\
+CC inclusive  & 1105454 & 490035 & 210408 \\
+CCQE & 505275 &  271299 &  128198 \\
+CC1\pip & 312997 & 111410 & 39942 \\
+CC1\piz & 66344 & 23399 & 8495 \\
+CC Coh & 29258 & 12027 & 4857 \\
+NC 1\piz & 86741 & 32958 & 12304 \\
+NC 1\pip & 31796 & 11938 & 4588 \\
+NC Coh & 18500 & 8353 & 3523 \\
+\hline
+\hline
+  \end{tabular}
+ \end{center}
+\label{tab:rates}
+\end{table}
+
+\subsubsection{CC Inclusive}
+
+Inclusive measurements are valuable because they are the most readily comparable to electron scattering measurements and theory, as there is minimal dependance on the hadronic final state. Also, external CC inclusive neutrino data was used in the estimation of the T2K neutrino oscillation analyses to help determine the CCDIS and CC multi-$\pi$ uncertainties.
+
+The CC \numu cross section has been measured on carbon by the T2K~\cite{Abe:2013jth} and SciBooNE~\cite{Nakajima:2010fp} experiments. MINERvA has produced ratios of the CC inclusive cross section on different targets (C,Fe,Pb) to scintillator~\cite{Tice:2014pgu}. In addition, the SciBooNE results include the  energy dependence of the CC inclusive cross section from the muon kinematic information. The CC \nue cross section on carbon is in preparation by T2K. 
+
+\nuprismlite should be able to select CC \numu and \nue events with high efficiency and produce a CC inclusive measurement vs. true neutrino energy on water.  Using the latest T2K simulation tools, we estimate  a CC inclusive \numu (\nue) selection to be  93.7\% (50.4\%) efficient relative to FCFV and 95.9\% (39.5\%) pure based on observable final state. The low purity of the \nue selection is predominantly due to the small \nue flux relative to \numu.
+
+%; MiniBooNE's result is in preparation. MiniBooNE proposes to also utilize scintillation light to verify the true neutrino energy dependance inferred from the muon, however the challenges of using this have delayed the result.  
+
+\subsubsection{\label{sec:cc0pi}CC0$\pi$}
+
+The CCQE \numu cross section has been measured on carbon by MiniBooNE~\cite{AguilarArevalo:2010zc} and is consistent with a larger cross section than expected which could correspond to an increased value of an effective axial mass ($M_A$) over expectation; SciBooNE's analysis was presented at NuInt2011~\cite{sciboone-nuint2011} but not published and is consistent with MiniBooNE. In addition, a measurement by NOMAD~\cite{Lyubushkin:2008pe} was done at higher neutrino energies which is not in agreement with MiniBooNE and SciBooNE. This is shown in Figure~\ref{fig:ccqe}, along with the recent T2K ND280 Tracker analysis results. An indirect measurement of the cross section was done with the K2K near detectors, where a higher than expected value of the QE axial mass, $M_A$, was also reported~\cite{Gran:2006jn}. There are also recent results from MINERvA~\cite{Fiorentini:2013ezn}.
+
+\begin{figure}[htpb]
+\begin{center}
+      \includegraphics[width=0.45\textwidth] {figures/nd280_miniboone_nomad.png}
+\end{center}
+\caption{The CCQE cross section as predicted by NEUT (pink dashed) vs. true neutrino energy. Also overlaid are results from MiniBooNE, NOMAD and T2K.}
+\label{fig:ccqe}
+\end{figure}
+
+
+MiniBooNE's selection was CC0$\pi$, that is 1 muon and no pions in the final state, and was 77.0\% pure and 26.6\% efficient; the \rmu selection at SK is 91.7\% pure  and 93.2\% efficient, based on observable final state.
+It is postulated that the MiniBooNE selection, but not the NOMAD one, is sensitive to multinucleon processes, where a neutrino interacts on a correlated pair of nucleons and that this resulted in the higher cross section reported by MiniBooNE. However, the two experiments have very different flux, selection and background predictions and systematics.
+
+By measuring the CC0$\pi$ cross section  at different vertex points in \nuprismlite, we should be able to infer the different energy dependence and constrain multinucleon and CC1\pip pionless $\Delta$ decay (PDD)  processes. This can be seen in Figure~\ref{fig:mono_beam_erec}, which shows the momentum of CCQE and MEC (Nieves' npnh) events for a particular angular range ($0.85<$cos($\theta$)$<0.90$) generated according to the T2K flux, and for a 1~GeV \nuprismlite flux. MiniBooNE and T2K have difficulty separating the MEC component of the CCQE cross section due to the shape of their neutrino energy spectra, but the \nuprismlite detector would give us additional information to separate out that component and characterize it, as demonstrated in Figure~\ref{fig:mono_beam_erec}.  Even though \nuprismlite is not a measurement on carbon, oxygen is of a similar density to carbon and so will be helpful in understanding the difference between the MiniBooNE and NOMAD results if it is indeed due to MEC.
+
+%\begin{figure}[h!]
+%\begin{center}
+%  \begin{minipage}[t]{.45\textwidth}
+%    \begin{center}
+%      \includegraphics[width=\textwidth] {figures/t2kflux_ccqe_npnh.pdf}
+%    \end{center}
+%  \end{minipage}
+%  \begin{minipage}[t]{.45\textwidth}
+%    \begin{center}
+%      \includegraphics[width=\textwidth] {figures/nuprism1000flux_ccqe_npnh.pdf}
+%    \end{center}
+%  \end{minipage}
+%\end{center}
+%\caption{The momentum of CCQE and MEC (Nieves' npnh) events for a particular angular range ($0.85<$cos($\theta$)$<0.90$) generated according to the T2K flux (left), and for a 1000 MeV \nuprismlite flux (right)}
+%\label{fig:npnh}
+%\end{figure}
+
+\subsubsection{CC1\pip and CC1\piz}
+
+The CC1\pip and CC1\piz cross sections have been measured on carbon by MiniBooNE~\cite{AguilarArevalo:2010bm},\cite{AguilarArevalo:2010xt}; K2K also produced measurements CC1\pip~\cite{Rodriguez:2008aa} and CC1\piz~\cite{Mariani:2010ez} with the SciBar detector. One may infer the coherent contribution to the CC1$\pi$ cross section from the angular distribution of the pion; this was done by K2K~\cite{Hasegawa:2005td} and SciBooNE. Improvements to the SK reconstruction could yield a similar efficiency and purity to the the MiniBooNE selections for CC1\pip (12.7\%, 90.0\%) and CC1\piz (6.4\%, 57.0\%) based on observable final state.
+
+The CC1$\pi$ resonant cross section for the T2K flux is dominated by contributions from the $\Delta$ resonance~\cite{Lalakulich:2013iaa}, so \nuprismlite would provide clear information about the N$\Delta$ coupling and form factors. We can also compare the pion momentum produced out of CC1\pip interactions for different neutrino energies in order to better understand how final state interactions affect pion kinematics.
+
+%{\it TODO: Add a plot of pion spectrum vs. offaxis angle} 
+
+
+\subsubsection{NC1\pip and \ncpi}
+
+The \ncpi  cross section has been measured on carbon by MiniBooNE~\cite{AguilarArevalo:2009ww} (36\% efficient, 73\% pure) and SciBooNE. A measurement of the ratio of \ncpi to the CCQE cross section has been done water by the K2K 1kton near detector~\cite{Nakayama:2004dp}. The efficiency and purity of the K2K selection is 47\% and 71\% respectively. A measurement of NC\pip exists~\cite{hawker} on a complicated target material (C$_3$H$_8$CF$_3$Br) but has no differential kinematic information. Figure~\ref{fig:ncpip} shows this measurement with a prediction from the NUANCE neutrino event generator.  
+
+\begin{figure}[htpb]
+\begin{center}
+      \includegraphics[width=0.45\textwidth] {figures/plot_ncpip_nu.pdf}
+\end{center}
+\caption{The NC\pip  cross section as predicted by NUANCE vs. true neutrino energy overlaid with the only measurement (on C$_3$H$_8$CF$_3$Br). Figure from Ref.~\cite{Formaggio:2013kya}}
+\label{fig:ncpip}
+\end{figure}
+
+A measurement of NC\pip will be challenging but possible at \nuprismlite. T2K already has developed an ``NC'' enhanced selection for Super-K that is 24\% NC\pip, 14\% NC1proton, and 55\% CC\numu, by interaction mode. Recent developments in event reconstruction at Super-K include a dedicated pion ring finder, which should make possible a more pure selection of NC\pip from which the pion momentum and angular distribution can also be measured. Since \nuprismlite will allow for a first measurement of the energy dependence of the NC channels and like the CC channels, it will be particularly interesting to measure the outgoing pion spectra of these events in order to probe nuclear final state interactions.
+
+To summarize, \nuprismlite's measurement of true neutrino energy dependence of the cross section is a unique and potentially critical input to our overall understanding of cross section processes around 1 GeV neutrino energy. In particular, \nuprismlite will help us understand for CC$0\pi$ events, if the shape and size of the PDD and mulit-nucleon components are modeled correctly. Furthermore, \nuprismlite can provide new information on the pion kinematics out of NC interactions relevant to the oscillation analysis and the energy dependence of those cross sections.
+
+\clearpage

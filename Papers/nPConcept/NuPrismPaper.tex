@@ -1,0 +1,131 @@
+\pdfoutput=1
+\documentclass[%
+% reprint,
+%superscriptaddress,
+%groupedaddress,
+%unsortedaddress,
+%runinaddress,
+%frontmatterverbose, 
+preprint,
+%showpacs,preprintnumbers,
+%nofootinbib,
+%nobibnotes,
+%bibnotes,
+ amsmath,amssymb,
+ aps,
+%pra,
+%prb,
+%rmp,
+%prstab,
+%prstper,
+%floatfix,
+]{revtex4-1}
+
+%usepackage[dvipdfmx]{graphicx}
+%This(dvipdfmx) is added by Ichikata to inlude pdf figures in cygwin enviroment. You can delete.
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{color}
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{natbib}
+
+%\usepackage{hyperref}% add hypertext capabilities
+\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\usepackage{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+\newcommand{\mtxtlbl}[1]{\text{{\scriptsize #1}}}
+
+\begin{document}
+
+\preprint{APS/123-QED}
+
+\title{The $\nu$PRISM Detector}% Force line breaks with \\
+%\thanks{A footnote to the article title}%
+
+
+\collaboration{The $\nu$PRISM Collaboration}%\noaffiliation
+
+\date{\today}% It is always \today, today,
+             %  but any date may be explicitly specified
+
+\begin{abstract}
+Abstract here.
+\begin{description}
+\item[Usage]
+Secondary publications and information retrieval purposes.
+\item[PACS numbers]
+May be entered using the \verb+\pacs{#1}+ command.
+%\item[Structure]
+%You may use the \texttt{description} environment to structure your abstract;
+%use the optional argument of the \verb+\item+ command to give the category of each item. 
+\end{description}
+\end{abstract}
+
+\pacs{Valid PACS appear here}% PACS, the Physics and Astronomy
+                             % Classification Scheme.
+%\keywords{Suggested keywords}%Use showkeys class option if keyword
+                              %display desired
+\maketitle
+
+%\tableofcontents
+%\begin{linenumbers}%\relax % Commence numbering lines
+
+\input{intro.tex}
+
+\input{nuprism_concept.tex}
+\input{nuprism_numu.tex}
+\input{nuprism_nue.tex}
+\input{nuprism_other.tex}
+\input{nuprism_build.tex}
+
+\input{summary.tex}
+
+%\end{linenumbers}
+
+
+%\begin{figure*}
+%\includegraphics{fig_2}% Here is how to import EPS art
+%\caption{\label{fig:wide}Use the figure* environment to get a wide
+%figure that spans the page in \texttt{twocolumn} formatting.}
+%\end{figure*}
+%\begin{table*}
+%\caption{\label{tab:table3}This is a wide table that spans the full page
+%width in a two-column layout. It is formatted using the
+%\texttt{table*} environment. It also demonstates the use of
+%\textbackslash\texttt{multicolumn} in rows with entries that span
+%more than one column.}
+%\begin{ruledtabular}
+%\begin{tabular}{ccccc}
+% &\multicolumn{2}{c}{$D_{4h}^1$}&\multicolumn{2}{c}{$D_{4h}^5$}\\
+% Ion&1st alternative&2nd alternative&lst alternative
+%&2nd alternative\\ \hline
+% K&$(2e)+(2f)$&$(4i)$ &$(2c)+(2d)$&$(4f)$ \\
+% Mn&$(2g)$\footnote{The $z$ parameter of these positions is $z\sim\frac{1}{4}$.}
+% &$(a)+(b)+(c)+(d)$&$(4e)$&$(2a)+(2b)$\\
+% Cl&$(a)+(b)+(c)+(d)$&$(2g)$\footnotemark[1]
+% &$(4e)^{\text{a}}$\\
+% He&$(8r)^{\text{a}}$&$(4j)^{\text{a}}$&$(4g)^{\text{a}}$\\
+% Ag& &$(4k)^{\text{a}}$& &$(4h)^{\text{a}}$\\
+%\end{tabular}
+%\end{ruledtabular}
+%\end{table*}
+
+
+\begin{acknowledgments}
+Acknowledgments go here
+\end{acknowledgments}
+
+\bibliographystyle{unsrt}
+\bibliography{NuPrismPaper}% Produces the bibliography via BibTeX.
+
+\end{document}

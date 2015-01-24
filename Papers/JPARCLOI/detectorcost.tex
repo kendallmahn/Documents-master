@@ -1,0 +1,138 @@
+\section{Detector Costs}\label{sec:detcosts}
+
+This appendix is intended to characterize the costs associated with building \nuprismlite. Several companies have provided preliminary cost estimates for the cost drivers of the experiment, which allows for a preliminary estimate of the total project cost.
+
+For many of the less expensive items, the costs presented here rely heavily on the experience from the T2K 2~km detector proposal, which was written in 2005~\cite{t2k2km}. For now, we have assumed that the prices are the same as those listed in the 2~km detector, since inflation rates in Japan have stayed near zero during the 9 years since that proposal was written. The assumed exchange rate is 107 Japanese yen to the US\$.
+
+A summary of the total project cost is given in Table~\ref{tab:costs}, and each component is described in the following subsections. Note that these numbers do not contain any contingency, as was the case in the 2~km proposal.
+
+The remaining item for which no price estimate is given is cost of acquiring or renting the experimental site. For the 2~km detector, the chosen site was initially owned by a private company before being acquired by Tokai village and offered to J-PARC to use at no cost. Other experiments in Japan, such as AGASA, instead rent the land from the owner. Since any solution for land acquisition will require input from J-PARC, and since the original 2~km site was acquired without any cost to the laboratory, no cost estimate for land acquisition is included in the total project cost at this time.
+
+ \begin{table}
+  \caption{Summary of nuPRISM project costs, excluding any contingency. Costs taken directly from the T2K 2~km proposal are labeled with $^*$}
+  \begin{center}
+   \begin{tabular}{ l c}
+ \hline
+Item & Cost (US M\$) \\
+\hline\hline
+Cavity Construction, Including HDPE Liner & 6.00 \\
+$^*$Surface Buildings & 0.77 \\$^*$Air-Conditioning, Water, and Services & 0.50\\
+$^*$Power Facilities & 0.68\\$^*$Cranes and Elevator & 0.31\\
+$^*$PMT Support Structure & 1.27\\
+3,215 8-inch PMTs & 4.30 \\
+PMT Electronics & 1.45 \\
+$^*$PMT Cables and Connectors & 0.13 \\
+Scintillator Panels & 0.36 \\
+Water System & 0.35 \\
+Gd Water Option & 0.15 \\
+$^*$GPS System & 0.04 \\
+\hline\hline
+Total & 16.31 \\
+   \end{tabular}
+  \end{center}
+ \label{tab:costs}
+ \end{table}
+
+
+\subsection{Civil Construction}
+
+As mentioned in Section~\ref{sec:civil}, two construction groups have been consulted for preliminary cost estimates for constructing the shaft. The first group evaluated the initial cost of the civil construction by scaling with the excavation
+volume based on prior vertical tunnel constructions. Table~\ref{tab:civil_cost} summarizes the initial cost estimation for each construction method.
+\begin{table}[htbp]
+  \begin{center}
+    \caption{Summary of initial cost estimation for civil construction. Five methods are considered: Pneumatic Caisson (PC), Soil Mixing Wall (SMW), New Austrian Tunneling (NAT), Urban Ring (UR), and Cast in-situ diaphragm wall (RC). A 70~m deep boring survey is assumed.}
+    (Unit: Oku JPY, roughly corresponds to Million USD)
+    \label{tab:civil_cost}
+    \begin{tabular}{|c|c|c|c|c|c|}
+      %\multicolumn{5}{r}{Unit is Oku JPY (roughly Million USD)}\\
+      \hline
+      Method & PC & SMW & NAT & UR & RC \\
+      \hline\hline
+      Survey & \multicolumn{5}{|c|}{0.1} \\ \hline
+      Designing & \multicolumn{5}{|c|}{0.15} \\ \hline
+      Land preparation & \multicolumn{5}{|c|}{0.15} \\ \hline
+      Construction & 7.7 & 5.9 & 5.3$\sim$6.1 & 7.5 & 7.5 \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+The second company prefers the NAT method for constructing the shaft, and they estimate a total cost of US\$6M, including the HPDE liner, although this number is contingent on a geological survey to confirm the rigidity of the earth in that region. This estimate is more consistent with the cost listed in the 2~km detector proposal, which was listed at US\$9.3M, despite a much larger excavated volume that included the construction of an underground cavern.
+
+
+\subsection{Photomultiplier Tubes}
+
+Table~\ref{tab:pmtcosts} shows a cost comparison of the various PMT options from Hamamatsu. The default design assumes 3,215 standard 8" PMTs, although several other options are being explored, as shown in the table. The cost of the newer Hybrid Photodetector (HPD) technology being considered for Hyper-K depends on the year in which the PMTs are requested, since further R\&D is expected to bring the production costs down for these devices.
+%The standard 8" PMTs (R5912) are a factor of 2.1 times more expensive (\$1400/PMT) than what was assumed in the 2~km proposal, which will have a significant impact on the cost of \nuprism.
+
+\begin{table}[h!]
+  \begin{center}
+    \caption{The pricing scenarios from Hamamatsu for various PMT configurations are shown. All prices are given in Japanese Yen.}
+    \label{tab:pmtcosts}
+    \begin{tabular}{|c|c|c|c|c|c|}
+      \hline
+      Name & QE\% & Quantity & Price/PMT & Cost & Delivery\\
+      \hline\hline
+      5" PMT & 25 & 8,000 & 103,500 & 828M & any \\ \hline
+      5" PMT HQE & 35  & 5,714 & 123,700 & 707M & any \\ \hline
+      8" PMT & 25 & 3,215 & 143,000 & 460M & any \\ \hline
+      8" PMT HQE & 35 & 2,296 & 170,500 & 391M & any \\ \hline
+      8" HPD HQE & 35 & 2,296 & 264,000 & 606M & 2014 \\
+      & 35 & 2,296 & 236,500 & 543M & 2015 \\
+      & 35 & 2,296 & 209,000 & 480M & 2016 \\ \hline
+      20" PMT HQE & 30 & 508 & 604,500 & 307M & 2014 \\
+      & 30 & 508 & 572,000 & 291M & 2015 \\
+      & 30 & 508 & 539,500 & 274M & 2016 \\ \hline
+      20" HPD HQE & 30 & 508 & 715,000 & 363M & 2014 \\
+      & 30 & 508 & 617,500 & 314M & 2015 \\
+      & 30 & 508 & 520,000 & 264M & 2016 \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+The ETEL/ADIT company based in the UK and Texas has also been consulted for supplying PMTs to \nuprism. They can provide 8" or 5" PMTs, but they do not have the APD or high-QE options available from Hamamatsu. The provided quote for 3,000 8" PMTs is \$1,775 per tube, which is significantly higher than the Hamamatsu quote. However, further consultation is planned to determine the cost of the 5" PMT option.
+
+\subsection{PMT Electronics}
+
+Initial cost estimates for \nuprism electronics were based on early HK presentations, where the cost per channel for the electronics was \$450 per channel.
+%In earlier HK presentations, there were estimates that the cost per channel for the electronics was $\approx$\$450 per channel. 
+This included the estimate for the digitization, HV power supply, network and case components.
+Separate estimates for the cost per channel for an FADC option came to a lower value for the digitization part; 
+so we might conservatively use HK's estimate for the cost per channel. Assuming that we are equipping 3,215 channels this results in \$1.45 million for \nuprism electronics.
+
+\subsection{OD Scintillator Panels}
+ 
+\begin{table}[h!]
+ \caption{Rough cost of one extruded scintillator counter of $2000 \times 200 \times 7$ mm$^3$ with WLS fiber readout.}
+ \label{tab:scintcost}
+ \begin{center} 
+ \begin{tabular}{|c|c|} \hline
+  Material/labor & cost in US\$ \\ 
+  \hline\hline
+  One extruded slab covered by a reflector  &   70 \\ \hline
+  WLS fiber Y11, 6 m long, 2\$/m & 12  \\ \hline
+  Optical glue, 2 g/m, 0.3\$/g &   3.6 \\ \hline
+  Optical connectors $2 \times 0.25$ & 0.5  \\ \hline
+  MPPC $2 \times 10\$$ & 20 \\ \hline
+  Labor  &  13.9 \\ \hline
+  \hline
+  Total  &  120 \\
+  \hline 
+ \end{tabular}
+ \end{center}
+\end{table}
+The rough cost estimation of one counter ($2000 \times 200 \times 7$ mm$^3$ is  given in Table~\ref{tab:scintcost}. The total surface of the \nuprism detector (10 m in diameter, 14 m in height) is about 600 m$^2$.   About 3000 counters will be needed to cover the detector surface completely. The rough total cost of this veto detector (without mechanics and electronics) is estimated to be about 360 k\$US. Assuming similar production speed as obtained in the SMRD case it  will take 12-14 months to extrude 3000 scintillator slabs of suitable dimensions and finally make all veto counters at the INR workshop. 
+
+\subsection{Water System}
+
+The water system is modeled after the Super-K water system, just as was done for the 2~km detector. We have consulted South Coast Water for an estimate of the cost of each of the system components, which resulted in a cost of US\$0.35M. This is only slightly higher than the US\$0.32M cost assumed in the 2~km proposal.
+
+By scaling from the running EGADS system, it is possible to estimate for adding 
+the additional components needed to handle gadolinium to the baseline system described above.
+Including the extra equipment required to make the baseline water system Gd-capable primarily 
+means adding filtration elements called nanofiltration.  Beyond that, there would have to be 
+a small standalone system for dissolving, pre-purifying, and then injecting the gadolinium sulfate, 
+as well as a standalone system to capture the gadolinium whenever the \nuprism tank needed 
+to be drained for servicing.  All of this would increase the total cost of the complete \nuprism water
+system from  US\$0.35 to US\$0.50.
+
